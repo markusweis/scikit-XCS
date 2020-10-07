@@ -64,6 +64,9 @@ class PredictionArray:
                 bestIndexList.append(action)
         return random.choice(bestIndexList)
 
+
+    
+
     ##*************** Get ActionProbabilities ****************
     def getProbabilities(self):
         probabilityList = np.empty(len(sorted(self.probabilities.items())))

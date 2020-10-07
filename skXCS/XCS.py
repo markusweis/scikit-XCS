@@ -18,7 +18,7 @@ class XCS(BaseEstimator,ClassifierMixin):
     def __init__(self,learning_iterations=10000,N=1000,p_general=0.5,beta=0.2,alpha=0.1,e_0=10,nu=5,theta_GA=25,p_crossover=0.8,p_mutation=0.04,
                  theta_del=20,delta=0.1,init_prediction=10,init_e=0,init_fitness=0.01,p_explore=0.5,theta_matching=None,do_GA_subsumption=True,
                  do_action_set_subsumption=False,max_payoff=1000,theta_sub=20,theta_select=0.5,discrete_attribute_limit=10,specified_attributes=np.array([]),
-                 random_state=None,prediction_error_reduction=0.25,fitness_reduction=0.1,reboot_filename=None):
+                 random_state=None,prediction_error_reduction=0.25,fitness_reduction=0.1,reboot_filename=None, use_inverse_varinance=False):
 
             '''
             :param learning_iterations:          Must be nonnegative integer. The number of explore or exploit learning iterations to run
@@ -218,6 +218,9 @@ class XCS(BaseEstimator,ClassifierMixin):
                 except:
                     raise Exception("random_state param must be integer or None")
 
+            if not isinstance(use_inverse_varinance, bool):
+                raise Exception("use_inverse_variance param must be bool")
+
             self.learning_iterations = learning_iterations
             self.N = N
             self.p_general = p_general
@@ -245,6 +248,7 @@ class XCS(BaseEstimator,ClassifierMixin):
             self.random_state = random_state
             self.prediction_error_reduction = prediction_error_reduction
             self.fitness_reduction = fitness_reduction
+            self.use_inverse_variance = use_inverse_varinance
 
             self.hasTrained = False
             self.trackingObj = TempTrackingObj()
@@ -350,6 +354,9 @@ class XCS(BaseEstimator,ClassifierMixin):
 
             self.iterationCount += 1
             self.env.newInstance()
+
+        #self.calcInverseVariances()
+
         self.saveFinalMetrics()
         self.hasTrained = True
         return self
@@ -390,6 +397,15 @@ class XCS(BaseEstimator,ClassifierMixin):
         self.trackingObj.matchSetSize = len(self.population.matchSet)
         self.trackingObj.actionSetSize = len(self.population.actionSet)
         self.population.clearSets()
+
+
+    def calcInverseVariances(self):
+        for classifier in self.population.popSet:
+            classifier.calcInverseVariance(self)
+
+    
+    
+
 
     ##*************** Population Reboot ****************
     def saveFinalMetrics(self):
@@ -461,17 +477,33 @@ class XCS(BaseEstimator,ClassifierMixin):
         for instance in range(numInstances):
             state = X[instance]
             self.population.makeEvaluationMatchSet(state,self)
-            predictionArray = PredictionArray(self.population, self)
-            actionWinner = predictionArray.bestActionWinner()
-            predictionList.append(actionWinner)
+
+            ################################
+            if self.use_inverse_variance:
+                sumInverseVariance = 0
+                predictionArray = {}
+                for classifier in self.population.popSet:
+                    sumInverseVariance += classifier.inverseVariance
+                for eachClass in self.env.formatData.phenotypeList:
+                    predictionArray[eachClass] = 0.0
+                for classifier in self.population.popSet:
+                    classifier.g_k = classifier.inverseVariance / sumInverseVariance
+                    predictionArray[classifier.action] += classifier.g_k
+                actionWinner = self.getRandomKeyOfBest(predictionArray)
+                predictionList.append(actionWinner)
+            #########################
+
+            else:
+                predictionArray = PredictionArray(self.population, self)
+                actionWinner = predictionArray.bestActionWinner()
+                predictionList.append(actionWinner)
             self.population.clearSets()
         return np.array(predictionList)
 
     def predict_proba(self,X):
         """Scikit-learn required: Test Accuracy of XCS
             Parameters
-            X: array-like {n_samples, n_features} Test instances to classify. ALL INSTANCE ATTRIBUTES MUST BE NUMERIC
-            Returns
+            X: array-like {n_samples, n_features} Test instances to classify. ALL INSTANCE ATTRIBUTES MUST BE NUMERIC Returns
             y: array-like {n_samples} Classifications.
         """
         try:
@@ -496,6 +528,18 @@ class XCS(BaseEstimator,ClassifierMixin):
     def score(self,X,y):
         predictionList = self.predict(X)
         return balanced_accuracy_score(y,predictionList)
+
+    def getRandomKeyOfBestValues(self, dict):
+        bestValue = 0.0
+        bestIndexList = []
+        index = None
+        for key, value in dict.items():
+            if value > bestValue:
+                bestValue = value
+        for key, value in dict.items():
+            if value == bestValue:
+                bestIndexList.append(key)
+
 
     ##*************** Export and Evaluation ****************
     def export_iteration_tracking_data(self,filename='iterationData.csv'):

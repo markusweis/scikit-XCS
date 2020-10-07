@@ -349,3 +349,4 @@ class ClassifierSet:
                 attributeAccList[ref] += cl.numerosity * cl.getAccuracy(xcs)
         return attributeAccList
 
+    

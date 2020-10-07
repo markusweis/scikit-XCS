@@ -1,5 +1,6 @@
 import random
 import copy
+import math
 
 class Classifier:
     def __init__(self,xcs):
@@ -19,6 +20,11 @@ class Classifier:
         self.timestampGA = xcs.iterationCount
         self.initTimeStamp = xcs.iterationCount
         self.deletionProb = None
+
+        self.inverseVariance = None
+        self.lossSum = 0
+        self.matchCountMixing = 0
+        self.g_k = None
 
         pass
 
@@ -319,3 +325,16 @@ class Classifier:
         else:
             deletionVote = self.actionSetSize * self.numerosity * meanFitness / (self.fitness / self.numerosity)
         return deletionVote
+
+    def calcInverseVariance(self, xcs):
+        xcs.env.resetDataRef()
+        for _i in range(len(xcs.env.formatData.savedRawTrainingData)):
+            if self.match(xcs.env.getTrainState()):
+                self.matchCountMixing += 1
+                realAction = xcs.env.currentTrainPhenotype()
+                if(realAction != self.action):
+                    self.lossSum += 1
+            xcs.env.newInstance()
+        self.inverseVariance =  (self.matchCountMixing - xcs.env.formatData.numAttributes) / (self.lossSum)
+        
+    
