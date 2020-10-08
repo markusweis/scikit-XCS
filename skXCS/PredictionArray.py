@@ -56,7 +56,7 @@ class PredictionArray:
          *MODIFIED so that in the case of a tie between actions - an action is selected randomly between the tied highest actions. """
         highVal = 0.0
         for action,value in self.predictionArray.items():
-            if value > highVal:
+            if value >= highVal:
                 highVal = value
         bestIndexList = []
         for action,value in self.predictionArray.items():

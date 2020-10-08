@@ -355,9 +355,6 @@ class XCS(BaseEstimator,ClassifierMixin):
             self.iterationCount += 1
             self.env.newInstance()
 
-        if self.use_inverse_variance:
-            self.calcInverseVariances()
-
         self.saveFinalMetrics()
         self.hasTrained = True
         return self
@@ -400,9 +397,6 @@ class XCS(BaseEstimator,ClassifierMixin):
         self.population.clearSets()
 
 
-    def calcInverseVariances(self):
-        for classifier in self.population.popSet:
-            classifier.calcInverseVariance(self)
 
     
     
@@ -478,26 +472,9 @@ class XCS(BaseEstimator,ClassifierMixin):
         for instance in range(numInstances):
             state = X[instance]
             self.population.makeEvaluationMatchSet(state,self)
-
-            ################################
-            if self.use_inverse_variance and self.hasTrained:
-                sumInverseVariance = 0
-                predictionArray = {}
-                for classifier in self.population.popSet:
-                    sumInverseVariance += classifier.inverseVariance
-                for eachClass in self.env.formatData.phenotypeList:
-                    predictionArray[eachClass] = 0.0
-                for classifier in self.population.popSet:
-                    classifier.g_k = classifier.inverseVariance / sumInverseVariance
-                    predictionArray[classifier.action] += classifier.g_k
-                actionWinner = self.getRandomKeyOfBest(predictionArray)
-                predictionList.append(actionWinner)
-            #########################
-
-            else:
-                predictionArray = PredictionArray(self.population, self)
-                actionWinner = predictionArray.bestActionWinner()
-                predictionList.append(actionWinner)
+            predictionArray = PredictionArray(self.population, self)
+            actionWinner = predictionArray.bestActionWinner()
+            predictionList.append(actionWinner)
             self.population.clearSets()
         return np.array(predictionList)
 

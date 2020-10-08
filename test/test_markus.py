@@ -23,6 +23,13 @@ class test_markus(unittest.TestCase):
         self.assertTrue(self.approxEqualOrBetter(0.2,clf.get_final_training_accuracy(),answer,True))
 
 
+
+
+
+
+
+
+
         ###Util Functions###
     def approxEqual(self, threshold, comp, right):  # threshold is % tolerance
         return abs(abs(comp - right) / right) < threshold

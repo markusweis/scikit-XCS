@@ -148,7 +148,7 @@ class Classifier:
         @param accuracy The accuracy of the classifier. """
 
         if xcs.use_inverse_variance:
-            self.calcInverseVariance()
+            self.calcInverseVariance(xcs)
             self.fitness = self.inverseVariance
         else:
             self.fitness = self.fitness + xcs.beta * ((accuracy * self.numerosity) / float(accSum) - self.fitness)
@@ -345,6 +345,8 @@ class Classifier:
             self.inverseVariance =  (self.matchCountMixing - xcs.env.formatData.numAttributes) / (self.lossSum)
         else: 
             self.inverseVariance = np.inf
+        print("condition: {} , inverseVariance: {}".format(self.condition, self.inverseVariance))
+        
         
         
     
