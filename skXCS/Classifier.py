@@ -2,6 +2,8 @@ import random
 import copy
 import math
 
+import numpy as np
+
 class Classifier:
     def __init__(self,xcs):
         self.specifiedAttList = []
@@ -145,7 +147,11 @@ class Classifier:
         @param accSum The sum of all the accuracies in the action set
         @param accuracy The accuracy of the classifier. """
 
-        self.fitness = self.fitness + xcs.beta * ((accuracy * self.numerosity) / float(accSum) - self.fitness)
+        if xcs.use_inverse_variance:
+            self.calcInverseVariance()
+            self.fitness = self.inverseVariance
+        else:
+            self.fitness = self.fitness + xcs.beta * ((accuracy * self.numerosity) / float(accSum) - self.fitness)
 
     def isSubsumer(self,xcs):
         """ Returns if the classifier is a possible subsumer. It is affirmed if the classifier
@@ -329,12 +335,16 @@ class Classifier:
     def calcInverseVariance(self, xcs):
         xcs.env.resetDataRef()
         for _i in range(len(xcs.env.formatData.savedRawTrainingData)):
-            if self.match(xcs.env.getTrainState()):
+            if self.match(xcs.env.getTrainState(), xcs):
                 self.matchCountMixing += 1
-                realAction = xcs.env.currentTrainPhenotype()
+                realAction = xcs.env.currentTrainPhenotype
                 if(realAction != self.action):
                     self.lossSum += 1
             xcs.env.newInstance()
-        self.inverseVariance =  (self.matchCountMixing - xcs.env.formatData.numAttributes) / (self.lossSum)
+        if self.lossSum != 0:
+            self.inverseVariance =  (self.matchCountMixing - xcs.env.formatData.numAttributes) / (self.lossSum)
+        else: 
+            self.inverseVariance = np.inf
+        
         
     

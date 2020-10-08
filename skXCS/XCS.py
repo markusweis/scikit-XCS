@@ -355,7 +355,8 @@ class XCS(BaseEstimator,ClassifierMixin):
             self.iterationCount += 1
             self.env.newInstance()
 
-        #self.calcInverseVariances()
+        if self.use_inverse_variance:
+            self.calcInverseVariances()
 
         self.saveFinalMetrics()
         self.hasTrained = True
@@ -479,7 +480,7 @@ class XCS(BaseEstimator,ClassifierMixin):
             self.population.makeEvaluationMatchSet(state,self)
 
             ################################
-            if self.use_inverse_variance:
+            if self.use_inverse_variance and self.hasTrained:
                 sumInverseVariance = 0
                 predictionArray = {}
                 for classifier in self.population.popSet:

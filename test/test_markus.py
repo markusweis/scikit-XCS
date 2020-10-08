@@ -2,12 +2,40 @@ import unittest
 import numpy as np
 from skXCS.StringEnumerator import StringEnumerator
 from skXCS.XCS import XCS
+import os
 
-#Use StringEnumerator to gather data
-converter = StringEnumerator("test/DataSets/Real/Multiplexer11.csv","class")
-headers,actionLabel,dataFeatures,dataActions = converter.get_params()
+THIS_DIR = os.path.dirname(os.path.abspath("test_eLCS.py"))
+if THIS_DIR[-4:] == 'test': #Patch that ensures testing from Scikit not test directory
+    THIS_DIR = THIS_DIR[:-5]
 
-#Initialize and train model
-model = XCS(learning_iterations = 5000)
-trainedModel = model.fit(dataFeatures,dataActions)
+
+
+class test_markus(unittest.TestCase):
+
+    def testInverseVariance(self):
+        dataPath = os.path.join(THIS_DIR, "test/DataSets/Real/Multiplexer6Modified.csv")
+        converter = StringEnumerator(dataPath,"Class")
+        headers, classLabel, dataFeatures, dataPhenotypes = converter.get_params()
+        clf = XCS(learning_iterations=1000,N=500,nu=10, use_inverse_varinance=True)
+        clf.fit(dataFeatures,dataPhenotypes)
+        answer = 0.894
+        print("6 Bit 1000 Iter: "+str(clf.get_final_training_accuracy()))
+        self.assertTrue(self.approxEqualOrBetter(0.2,clf.get_final_training_accuracy(),answer,True))
+
+
+        ###Util Functions###
+    def approxEqual(self, threshold, comp, right):  # threshold is % tolerance
+        return abs(abs(comp - right) / right) < threshold
+
+    def approxEqualOrBetter(self, threshold, comp, right,
+                            better):  # better is False when better is less, True when better is greater
+        if not better:
+            if self.approxEqual(threshold, comp, right) or comp < right:
+                return True
+            return False
+        else:
+            if self.approxEqual(threshold, comp, right) or comp > right:
+                return True
+            return False
+
 
