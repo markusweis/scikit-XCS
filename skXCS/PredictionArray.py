@@ -9,6 +9,8 @@ class PredictionArray:
         self.probabilities = {}
         self.hasMatch = len(population.matchSet) != 0
 
+        print("Match Set {}".format(population.matchSet))
+
         for eachClass in self.actionList:
             self.predictionArray[eachClass] = 0.0
             self.fitnesses[eachClass] = 0.0
@@ -58,6 +60,8 @@ class PredictionArray:
         for action,value in self.predictionArray.items():
             if value >= highVal:
                 highVal = value
+        #print("high value: {}".format(highVal))
+        print("prediction array: {}".format(self.predictionArray))
         bestIndexList = []
         for action,value in self.predictionArray.items():
             if value == highVal:

@@ -84,6 +84,7 @@ class ClassifierSet:
         for cl in self.actionSet:
             classifier = self.popSet[cl]
             classifier.increaseExperience()
+            print("Update prediction of classifier {}".format(cl))
             classifier.updatePrediction(P,xcs)
             classifier.updatePredictionError(P,xcs)
             classifier.updateActionSetSize(actionSetNumerositySum,xcs)
@@ -108,6 +109,7 @@ class ClassifierSet:
         i = 0
         for clRef in self.actionSet:
             classifier = self.popSet[clRef]
+            print("Update Fitness of classifier {}".format(clRef))
             classifier.updateFitness(accuracySum,accuracies[i],xcs)
             i+=1
 

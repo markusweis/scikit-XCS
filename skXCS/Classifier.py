@@ -26,9 +26,7 @@ class Classifier:
         self.inverseVariance = None
         self.lossSum = 0
         self.matchCountMixing = 0
-        self.g_k = None
-
-        pass
+        
 
     def initializeWithParentClassifier(self,classifier):
         self.specifiedAttList = copy.deepcopy(classifier.specifiedAttList)
@@ -123,6 +121,7 @@ class Classifier:
             self.prediction = self.prediction + (P-self.prediction) / float(self.experience)
         else:
             self.prediction = self.prediction + xcs.beta * (P - self.prediction)
+        print("Updated prediction to {}".format(self.prediction))
 
     def updateActionSetSize(self,numerositySum,xcs):
         if self.experience < 1.0/xcs.beta:
@@ -152,6 +151,7 @@ class Classifier:
             self.fitness = self.inverseVariance
         else:
             self.fitness = self.fitness + xcs.beta * ((accuracy * self.numerosity) / float(accSum) - self.fitness)
+        print("Updated fitness to {}\n".format(self.fitness))
 
     def isSubsumer(self,xcs):
         """ Returns if the classifier is a possible subsumer. It is affirmed if the classifier
@@ -342,10 +342,10 @@ class Classifier:
                     self.lossSum += 1
             xcs.env.newInstance()
         if self.lossSum != 0:
-            self.inverseVariance =  (self.matchCountMixing - xcs.env.formatData.numAttributes) / (self.lossSum)
+            self.inverseVariance =  (self.matchCountMixing) / (self.lossSum)
         else: 
-            self.inverseVariance = np.inf
-        print("condition: {} , inverseVariance: {}".format(self.condition, self.inverseVariance))
+            self.inverseVariance = 100
+        #print("condition: {} , inverseVariance: {}".format(self.condition, self.inverseVariance))
         
         
         

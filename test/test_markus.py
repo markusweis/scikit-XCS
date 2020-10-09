@@ -19,7 +19,8 @@ class test_markus(unittest.TestCase):
         clf = XCS(learning_iterations=1000,N=500,nu=10, use_inverse_varinance=True)
         clf.fit(dataFeatures,dataPhenotypes)
         answer = 0.894
-        print("6 Bit 1000 Iter: "+str(clf.get_final_training_accuracy()))
+        print("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm")
+        print("#####################################6 Bit 1000 Iter: "+str(clf.get_final_training_accuracy()))
         self.assertTrue(self.approxEqualOrBetter(0.2,clf.get_final_training_accuracy(),answer,True))
 
 
