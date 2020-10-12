@@ -56,6 +56,8 @@ class XCS(BaseEstimator,ClassifierMixin):
             :param reboot_filename:    Must be String or None. Filename of model to be rebooted
             '''
 
+            self._i = 0
+
             #learning_iterations
             if not self.checkIsInt(learning_iterations):
                 raise Exception("learning_iterations param must be nonnegative integer")
@@ -363,6 +365,7 @@ class XCS(BaseEstimator,ClassifierMixin):
         self.trackingObj.resetAll()
         shouldExplore = random.random() < self.p_explore
         if shouldExplore:
+            print("\n----------------------------------\nIteration {} -> Exploration".format(self._i))
             self.population.createMatchSet(state,self)
             predictionArray = PredictionArray(self.population,self)
             actionWinner = predictionArray.randomActionWinner()
@@ -372,6 +375,7 @@ class XCS(BaseEstimator,ClassifierMixin):
             self.population.runGA(state,self)
             self.population.deletion(self)
         else:
+            print("\n----------------------------------\nIteration {}".format(self._i))
             self.population.createMatchSet(state, self)
             predictionArray = PredictionArray(self.population, self)
             actionWinner = predictionArray.bestActionWinner()
@@ -395,6 +399,7 @@ class XCS(BaseEstimator,ClassifierMixin):
         self.trackingObj.matchSetSize = len(self.population.matchSet)
         self.trackingObj.actionSetSize = len(self.population.actionSet)
         self.population.clearSets()
+        self._i += 1
 
 
 

@@ -23,9 +23,10 @@ class Classifier:
         self.initTimeStamp = xcs.iterationCount
         self.deletionProb = None
 
-        self.inverseVariance = None
+        self.inverseVariance = 0
         self.lossSum = 0
         self.matchCountMixing = 0
+        self.g_k = 0
         
 
     def initializeWithParentClassifier(self,classifier):
@@ -151,7 +152,21 @@ class Classifier:
             self.fitness = self.inverseVariance
         else:
             self.fitness = self.fitness + xcs.beta * ((accuracy * self.numerosity) / float(accSum) - self.fitness)
-        print("Updated fitness to {}\n".format(self.fitness))
+        print("Updated fitness to {}".format(self.fitness))
+
+    def updateInverseVariance(self, xcs):
+        print(self.inverseVariance)
+        self.calcInverseVariance(xcs)
+
+    def updateGatingPara(self, sumInverseVariance):
+        if self.inverseVariance == np.inf:
+            self.g_k = np.inf
+        else:
+            self.g_k = self.inverseVariance / sumInverseVariance
+        print(" {}".format(self.g_k))
+        self.fitness = self.g_k
+
+        
 
     def isSubsumer(self,xcs):
         """ Returns if the classifier is a possible subsumer. It is affirmed if the classifier
@@ -344,7 +359,7 @@ class Classifier:
         if self.lossSum != 0:
             self.inverseVariance =  (self.matchCountMixing) / (self.lossSum)
         else: 
-            self.inverseVariance = 100
+            self.inverseVariance = np.inf
         #print("condition: {} , inverseVariance: {}".format(self.condition, self.inverseVariance))
         
         

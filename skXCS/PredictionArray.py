@@ -17,11 +17,16 @@ class PredictionArray:
 
         for ref in population.matchSet:
             cl = population.popSet[ref]
-            self.predictionArray[cl.action] += cl.prediction*cl.fitness
+            if cl.prediction == 0:
+                pass
+            else:
+                self.predictionArray[cl.action] += cl.prediction*cl.fitness
             self.fitnesses[cl.action] += cl.fitness
 
         for eachClass in self.actionList:
-            if self.fitnesses[eachClass] != 0:
+            if self.predictionArray[eachClass] == np.inf:
+                pass
+            elif self.fitnesses[eachClass] != 0:
                 self.predictionArray[eachClass] /= self.fitnesses[eachClass]
             else:
                 self.predictionArray[eachClass] = 0
@@ -60,7 +65,7 @@ class PredictionArray:
         for action,value in self.predictionArray.items():
             if value >= highVal:
                 highVal = value
-        #print("high value: {}".format(highVal))
+        print("high value: {}".format(highVal))
         print("prediction array: {}".format(self.predictionArray))
         bestIndexList = []
         for action,value in self.predictionArray.items():

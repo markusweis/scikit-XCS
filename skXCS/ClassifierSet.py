@@ -107,11 +107,27 @@ class ClassifierSet:
             i+=1
 
         i = 0
-        for clRef in self.actionSet:
-            classifier = self.popSet[clRef]
-            print("Update Fitness of classifier {}".format(clRef))
-            classifier.updateFitness(accuracySum,accuracies[i],xcs)
-            i+=1
+        
+
+        if xcs.use_inverse_variance:
+            for clRef in self.actionSet:
+                classifier = self.popSet[clRef]
+                print("Updating Inverse Variance of cls {}:".format(clRef))
+                classifier.updateInverseVariance(xcs)    
+            sumInverseVariance = 0
+            for clRef in self.matchSet:
+                sumInverseVariance += self.popSet[clRef].inverseVariance
+            print("Summe der inversen Invarianzen: {}".format(sumInverseVariance))
+            for clRef in self.actionSet:    
+                print("Updating Gating Param of cls {}:".format(clRef))
+                self.popSet[clRef].updateGatingPara(sumInverseVariance)
+
+        else:
+            for clRef in self.actionSet:
+                classifier = self.popSet[clRef]
+                print("Update Fitness of classifier {}".format(clRef))
+                classifier.updateFitness(accuracySum,accuracies[i],xcs)
+                i+=1
 
     ####Action Set Subsumption####
     def do_action_set_subsumption(self,xcs):
