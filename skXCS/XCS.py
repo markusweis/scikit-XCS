@@ -359,7 +359,15 @@ class XCS(BaseEstimator,ClassifierMixin):
 
         self.saveFinalMetrics()
         self.hasTrained = True
+
+        self.calcInvVars()
         return self
+
+
+    def calcInvVars(self):
+        for i, clf in enumerate(self.population.popSet):
+            print("Calculating InvVar of clf {}".format(i))
+            clf.calcInvVar(self)
 
     def runIteration(self,state):
         self.trackingObj.resetAll()
@@ -478,6 +486,9 @@ class XCS(BaseEstimator,ClassifierMixin):
             state = X[instance]
             self.population.makeEvaluationMatchSet(state,self)
             predictionArray = PredictionArray(self.population, self)
+            if self.use_inverse_variance:
+                predictionArray.calcGatingParams()
+                predictionArray.setFitnessToG_k()
             actionWinner = predictionArray.bestActionWinner()
             predictionList.append(actionWinner)
             self.population.clearSets()
@@ -683,6 +694,20 @@ class XCS(BaseEstimator,ClassifierMixin):
         else:
             raise Exception("There is no final attribute accuracy list to return, as the XCS model has not been trained")
 
+    def printFitness(self):
+        print("\n\n########### Fitness Overview ###############")
+        for i, cl in enumerate(self.population.popSet):
+            print("Fitness of clf {}: {}".format(i, cl.fitness))
+        print("################################################")
+
+    def printGatingParams(self):
+        print("\n\n########### Gating Overview ###############")
+        for i, cl in enumerate(self.population.popSet):
+            print("Gating param of clf {}: {}".format(i, cl.g_k))
+        print("################################################")
+
+    
+
 class TempTrackingObj():
     #Tracks stats of every iteration (except accuracy, avg generality, and times)
     def __init__(self):
@@ -708,3 +733,6 @@ class TempTrackingObj():
         self.mutationCount = 0
         self.coveringCount = 0
         self.deletionCount = 0
+
+
+    

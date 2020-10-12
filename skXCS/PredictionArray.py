@@ -8,6 +8,8 @@ class PredictionArray:
         self.actionList = xcs.env.formatData.phenotypeList
         self.probabilities = {}
         self.hasMatch = len(population.matchSet) != 0
+        self.sumInvVar = 0
+        self.population = population
 
         print("Match Set {}".format(population.matchSet))
 
@@ -22,6 +24,7 @@ class PredictionArray:
             else:
                 self.predictionArray[cl.action] += cl.prediction*cl.fitness
             self.fitnesses[cl.action] += cl.fitness
+            self.sumInvVar += cl.inverseVariance
 
         for eachClass in self.actionList:
             if self.predictionArray[eachClass] == np.inf:
@@ -73,6 +76,19 @@ class PredictionArray:
                 bestIndexList.append(action)
         return random.choice(bestIndexList)
 
+    def calcGatingParams(self):
+        for clRef in self.population.matchSet:
+            cl = self.population.popSet[clRef]
+            print("Updating Gating Param of clf {}".format(clRef))
+            cl.updateGatingPara(self.sumInvVar)
+
+    def setFitnessToG_k(self):
+        #print("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm")
+        for clRef in self.population.matchSet:
+            cl = self.population.popSet[clRef]
+            cl.fitness = cl.g_k
+            #print(cl.g_k)
+        #print("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm")
 
     
 

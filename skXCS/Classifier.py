@@ -147,14 +147,11 @@ class Classifier:
         @param accSum The sum of all the accuracies in the action set
         @param accuracy The accuracy of the classifier. """
 
-        if xcs.use_inverse_variance:
-            self.calcInverseVariance(xcs)
-            self.fitness = self.inverseVariance
-        else:
-            self.fitness = self.fitness + xcs.beta * ((accuracy * self.numerosity) / float(accSum) - self.fitness)
+        
+        self.fitness = self.fitness + xcs.beta * ((accuracy * self.numerosity) / float(accSum) - self.fitness)
         print("Updated fitness to {}".format(self.fitness))
 
-    def updateInverseVariance(self, xcs):
+    def calcInvVar(self, xcs):
         self.calcInverseVariance(xcs)
         print(self.inverseVariance)
 
@@ -359,7 +356,7 @@ class Classifier:
         if self.lossSum != 0:
             self.inverseVariance =  (self.matchCountMixing) / (self.lossSum)
         else: 
-            self.inverseVariance = 100000
+            self.inverseVariance = 1000000 # should be np.inf 
         #print("condition: {} , inverseVariance: {}".format(self.condition, self.inverseVariance))
         
         
