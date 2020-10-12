@@ -155,12 +155,12 @@ class Classifier:
         print("Updated fitness to {}".format(self.fitness))
 
     def updateInverseVariance(self, xcs):
-        print(self.inverseVariance)
         self.calcInverseVariance(xcs)
+        print(self.inverseVariance)
 
     def updateGatingPara(self, sumInverseVariance):
         if self.inverseVariance == np.inf:
-            self.g_k = np.inf
+            self.g_k = 1
         else:
             self.g_k = self.inverseVariance / sumInverseVariance
         print(" {}".format(self.g_k))
@@ -359,7 +359,7 @@ class Classifier:
         if self.lossSum != 0:
             self.inverseVariance =  (self.matchCountMixing) / (self.lossSum)
         else: 
-            self.inverseVariance = np.inf
+            self.inverseVariance = 100000
         #print("condition: {} , inverseVariance: {}".format(self.condition, self.inverseVariance))
         
         
