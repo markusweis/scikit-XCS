@@ -360,14 +360,10 @@ class XCS(BaseEstimator,ClassifierMixin):
         self.saveFinalMetrics()
         self.hasTrained = True
 
-        self.calcInvVars()
+        
         return self
 
 
-    def calcInvVars(self):
-        for i, clf in enumerate(self.population.popSet):
-            print("Calculating InvVar of clf {}".format(i))
-            clf.calcInvVar(self)
 
     def runIteration(self,state):
         self.trackingObj.resetAll()
@@ -486,9 +482,6 @@ class XCS(BaseEstimator,ClassifierMixin):
             state = X[instance]
             self.population.makeEvaluationMatchSet(state,self)
             predictionArray = PredictionArray(self.population, self)
-            if self.use_inverse_variance:
-                predictionArray.calcGatingParams()
-                predictionArray.setFitnessToG_k()
             actionWinner = predictionArray.bestActionWinner()
             predictionList.append(actionWinner)
             self.population.clearSets()

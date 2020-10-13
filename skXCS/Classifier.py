@@ -151,17 +151,17 @@ class Classifier:
         self.fitness = self.fitness + xcs.beta * ((accuracy * self.numerosity) / float(accSum) - self.fitness)
         print("Updated fitness to {}".format(self.fitness))
 
-    def calcInvVar(self, xcs):
+    def updateInvVar(self, xcs):
         self.calcInverseVariance(xcs)
         print(self.inverseVariance)
 
-    def updateGatingPara(self, sumInverseVariance):
+    def updateGatingPara(self, sumInverseVariance, countInf):
         if self.inverseVariance == np.inf:
-            self.g_k = 1
+            self.g_k = 1 / countInf
         else:
             self.g_k = self.inverseVariance / sumInverseVariance
         print(" {}".format(self.g_k))
-        self.fitness = self.g_k
+        
 
         
 

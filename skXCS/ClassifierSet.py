@@ -1,6 +1,8 @@
 
 import copy
 import random
+
+import numpy as np
 from skXCS.Classifier import Classifier
 
 class ClassifierSet:
@@ -107,7 +109,26 @@ class ClassifierSet:
             i+=1
 
         i = 0
+
+
+        if xcs.use_inverse_variance:
+            for clRef in self.actionSet:
+                classifier = self.popSet[clRef]
+                print("Updating Inverse Variance of cls {}:".format(clRef))
+                classifier.updateInvVar(xcs)    
+            sumInverseVariance = 0
+            countInf = 0
+            for clRef in self.matchSet:
+                if self.popSet[clRef].inverseVariance == np.inf:
+                    countInf += 1
+                sumInverseVariance += self.popSet[clRef].inverseVariance
+            print("Summe der inversen Invarianzen: {}".format(sumInverseVariance))
+            print("Infinity Count: {}".format(countInf))
+            for clRef in self.actionSet:    
+                print("Updating Gating Param of cls {}:".format(clRef))
+                self.popSet[clRef].updateGatingPara(sumInverseVariance, countInf)
         
+    
         for clRef in self.actionSet:
             classifier = self.popSet[clRef]
             print("Update Fitness of classifier {}".format(clRef))
