@@ -356,7 +356,7 @@ class Classifier:
         if self.lossSum != 0:
             self.inverseVariance =  (self.matchCountMixing) / (self.lossSum)
         else: 
-            self.inverseVariance = 1000000 # should be np.inf 
+            self.inverseVariance = np.inf # should be np.inf 
         #print("condition: {} , inverseVariance: {}".format(self.condition, self.inverseVariance))
         
         
