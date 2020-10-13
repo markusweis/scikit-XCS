@@ -8,7 +8,6 @@ class PredictionArray:
         self.actionList = xcs.env.formatData.phenotypeList
         self.probabilities = {}
         self.hasMatch = len(population.matchSet) != 0
-        self.sumInvVar = 0
         self.population = population
 
         print("Match Set {}".format(population.matchSet))
@@ -24,12 +23,9 @@ class PredictionArray:
             else:
                 self.predictionArray[cl.action] += cl.prediction*cl.fitness
             self.fitnesses[cl.action] += cl.fitness
-            self.sumInvVar += cl.inverseVariance
 
         for eachClass in self.actionList:
-            if self.predictionArray[eachClass] == np.inf:
-                pass
-            elif self.fitnesses[eachClass] != 0:
+            if self.fitnesses[eachClass] != 0:
                 self.predictionArray[eachClass] /= self.fitnesses[eachClass]
             else:
                 self.predictionArray[eachClass] = 0
@@ -66,7 +62,7 @@ class PredictionArray:
          *MODIFIED so that in the case of a tie between actions - an action is selected randomly between the tied highest actions. """
         highVal = 0.0
         for action,value in self.predictionArray.items():
-            if value >= highVal:
+            if value > highVal:
                 highVal = value
         print("high value: {}".format(highVal))
         print("prediction array: {}".format(self.predictionArray))
@@ -76,19 +72,6 @@ class PredictionArray:
                 bestIndexList.append(action)
         return random.choice(bestIndexList)
 
-    def calcGatingParams(self):
-        for clRef in self.population.matchSet:
-            cl = self.population.popSet[clRef]
-            print("Updating Gating Param of clf {}".format(clRef))
-            cl.updateGatingPara(self.sumInvVar)
-
-    def setFitnessToG_k(self):
-        #print("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm")
-        for clRef in self.population.matchSet:
-            cl = self.population.popSet[clRef]
-            cl.fitness = cl.g_k
-            #print(cl.g_k)
-        #print("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm")
 
     
 
