@@ -18,10 +18,7 @@ class PredictionArray:
 
         for ref in population.matchSet:
             cl = population.popSet[ref]
-            if cl.prediction == 0:
-                pass
-            else:
-                self.predictionArray[cl.action] += cl.prediction*cl.fitness
+            self.predictionArray[cl.action] += cl.prediction*cl.fitness
             self.fitnesses[cl.action] += cl.fitness
 
         for eachClass in self.actionList:

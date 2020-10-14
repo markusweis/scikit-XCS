@@ -516,16 +516,6 @@ class XCS(BaseEstimator,ClassifierMixin):
         predictionList = self.predict(X)
         return balanced_accuracy_score(y,predictionList)
 
-    def getRandomKeyOfBestValues(self, dict):
-        bestValue = 0.0
-        bestIndexList = []
-        index = None
-        for key, value in dict.items():
-            if value > bestValue:
-                bestValue = value
-        for key, value in dict.items():
-            if value == bestValue:
-                bestIndexList.append(key)
 
 
     ##*************** Export and Evaluation ****************

@@ -108,7 +108,6 @@ class ClassifierSet:
             accuracySum = accuracySum + accuracies[i]*classifier.numerosity
             i+=1
 
-        i = 0
 
 
         if xcs.use_inverse_variance:
@@ -129,6 +128,7 @@ class ClassifierSet:
                 self.popSet[clRef].updateGatingPara(sumInverseVariance, countInf)
         
     
+        i = 0
         for clRef in self.actionSet:
             classifier = self.popSet[clRef]
             print("Update Fitness of classifier {}".format(clRef))
