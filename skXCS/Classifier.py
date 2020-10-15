@@ -2,6 +2,7 @@ import random
 import copy
 import math
 
+
 import numpy as np
 
 class Classifier:
@@ -122,7 +123,7 @@ class Classifier:
             self.prediction = self.prediction + (P-self.prediction) / float(self.experience)
         else:
             self.prediction = self.prediction + xcs.beta * (P - self.prediction)
-        print("Updated prediction to {}".format(self.prediction))
+        ##print("Updated prediction to {}".format(self.prediction))
 
     def updateActionSetSize(self,numerositySum,xcs):
         if self.experience < 1.0/xcs.beta:
@@ -149,7 +150,7 @@ class Classifier:
 
         
         self.fitness = self.fitness + xcs.beta * ((accuracy * self.numerosity) / float(accSum) - self.fitness)
-        print("Updated fitness to {}".format(self.fitness))
+        #print("Updated fitness to {}".format(self.fitness))
 
     def updateInvVar(self, xcs):
         self.calcInverseVariance(xcs)
@@ -160,7 +161,8 @@ class Classifier:
             self.g_k = 1 / countInf
         else:
             self.g_k = self.inverseVariance / sumInverseVariance
-        print(" {}".format(self.g_k))
+        #print(" {}".format(self.g_k))
+        #self.fitness = self.inverseVariance
         
 
         
@@ -345,6 +347,7 @@ class Classifier:
         return deletionVote
 
     def calcInverseVariance(self, xcs):
+        dataRef = xcs.env.dataRef
         xcs.env.resetDataRef()
         for _i in range(len(xcs.env.formatData.savedRawTrainingData)):
             if self.match(xcs.env.getTrainState(), xcs):
@@ -357,7 +360,9 @@ class Classifier:
             self.inverseVariance =  (self.matchCountMixing) / (self.lossSum)
         else: 
             self.inverseVariance = np.inf # should be np.inf 
-        #print("condition: {} , inverseVariance: {}".format(self.condition, self.inverseVariance))
+        xcs.env.setDataRef(dataRef)
+        
+        ##print("condition: {} , inverseVariance: {}".format(self.condition, self.inverseVariance))
         
         
         

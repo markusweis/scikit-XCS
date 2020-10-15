@@ -26,6 +26,11 @@ class Environment:
         self.currentTrainState = self.formatData.trainFormatted[0][self.dataRef]
         self.currentTrainPhenotype = self.formatData.trainFormatted[1][self.dataRef]
 
+    def setDataRef(self, ref: int):
+        self.dataRef = ref
+        self.currentTrainState = self.formatData.trainFormatted[0][self.dataRef]
+        self.currentTrainPhenotype = self.formatData.trainFormatted[1][self.dataRef]
+
     def executeAction(self,action):
         if action == self.currentTrainPhenotype:
             return self.max_payoff

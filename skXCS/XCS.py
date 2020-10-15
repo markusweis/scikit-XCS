@@ -20,6 +20,8 @@ class XCS(BaseEstimator,ClassifierMixin):
                  do_action_set_subsumption=False,max_payoff=1000,theta_sub=20,theta_select=0.5,discrete_attribute_limit=10,specified_attributes=np.array([]),
                  random_state=None,prediction_error_reduction=0.25,fitness_reduction=0.1,reboot_filename=None, use_inverse_varinance=False):
 
+            
+            
             '''
             :param learning_iterations:          Must be nonnegative integer. The number of explore or exploit learning iterations to run
             :param N:                           Must be nonnegative integer. Maximum micropopulation size
@@ -220,8 +222,8 @@ class XCS(BaseEstimator,ClassifierMixin):
                 except:
                     raise Exception("random_state param must be integer or None")
 
-            if not isinstance(use_inverse_varinance, bool):
-                raise Exception("use_inverse_variance param must be bool")
+            """ if not isinstance(use_inverse_varinance, bool):
+                raise Exception("use_inverse_variance param must be bool, is is {}".format(use_inverse_varinance)) """
 
             self.learning_iterations = learning_iterations
             self.N = N

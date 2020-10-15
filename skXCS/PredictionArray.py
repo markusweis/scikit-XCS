@@ -9,6 +9,7 @@ class PredictionArray:
         self.probabilities = {}
         self.hasMatch = len(population.matchSet) != 0
         self.population = population
+        self.xcs = xcs
 
         print("Match Set {}".format(population.matchSet))
 
@@ -18,8 +19,13 @@ class PredictionArray:
 
         for ref in population.matchSet:
             cl = population.popSet[ref]
-            self.predictionArray[cl.action] += cl.prediction*cl.fitness
-            self.fitnesses[cl.action] += cl.fitness
+
+            if xcs.use_inverse_variance:
+                self.predictionArray[cl.action] += cl.prediction * cl.g_k
+                self.fitnesses[cl.action] += cl.g_k    
+            else:
+                self.predictionArray[cl.action] += cl.prediction*cl.fitness
+                self.fitnesses[cl.action] += cl.fitness
 
         for eachClass in self.actionList:
             if self.fitnesses[eachClass] != 0:
@@ -48,11 +54,15 @@ class PredictionArray:
     ##*************** Action selection functions ****************
     def randomActionWinner(self):
         """ Selects an action randomly. The function assures that the chosen action is represented by at least one classifier. """
-        while True:
-            ret = random.choice(self.actionList)
-            if self.fitnesses[ret] != 0:
-                break
-        return ret
+        
+        if self.xcs.use_inverse_variance:
+            return random.choice(self.actionList)
+        else:
+            while True:
+                ret = random.choice(self.actionList)
+                if self.fitnesses[ret] != 0:
+                    break
+            return ret
 
     def bestActionWinner(self):
         """ Selects the action in the prediction array with the best value.
