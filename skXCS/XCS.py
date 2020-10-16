@@ -691,6 +691,10 @@ class XCS(BaseEstimator,ClassifierMixin):
             print("Gating param of clf {}: {}".format(i, cl.g_k))
         print("################################################")
 
+    def printInverseVariance(self):
+        for i, cl in enumerate(self.population.popSet):
+            print("Inv-var of clf {}: {}".format(i, cl.inverseVariance))
+
     
 
 class TempTrackingObj():
