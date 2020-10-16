@@ -11,7 +11,7 @@ class PredictionArray:
         self.population = population
         self.xcs = xcs
 
-        print("Match Set {}".format(population.matchSet))
+        #print("Match Set {}".format(population.matchSet))
 
         for eachClass in self.actionList:
             self.predictionArray[eachClass] = 0.0
@@ -71,8 +71,8 @@ class PredictionArray:
         for action,value in self.predictionArray.items():
             if value > highVal:
                 highVal = value
-        print("high value: {}".format(highVal))
-        print("prediction array: {}".format(self.predictionArray))
+        #print("high value: {}".format(highVal))
+        #print("prediction array: {}".format(self.predictionArray))
         bestIndexList = []
         for action,value in self.predictionArray.items():
             if value == highVal:

@@ -371,7 +371,7 @@ class XCS(BaseEstimator,ClassifierMixin):
         self.trackingObj.resetAll()
         shouldExplore = random.random() < self.p_explore
         if shouldExplore:
-            print("\n----------------------------------\nIteration {} -> Exploration".format(self._i))
+            #print("\n----------------------------------\nIteration {} -> Exploration".format(self._i))
             self.population.createMatchSet(state,self)
             predictionArray = PredictionArray(self.population,self)
             actionWinner = predictionArray.randomActionWinner()
@@ -381,7 +381,7 @@ class XCS(BaseEstimator,ClassifierMixin):
             self.population.runGA(state,self)
             self.population.deletion(self)
         else:
-            print("\n----------------------------------\nIteration {}".format(self._i))
+            #print("\n----------------------------------\nIteration {}".format(self._i))
             self.population.createMatchSet(state, self)
             predictionArray = PredictionArray(self.population, self)
             actionWinner = predictionArray.bestActionWinner()

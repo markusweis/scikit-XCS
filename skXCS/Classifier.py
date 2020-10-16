@@ -123,7 +123,7 @@ class Classifier:
             self.prediction = self.prediction + (P-self.prediction) / float(self.experience)
         else:
             self.prediction = self.prediction + xcs.beta * (P - self.prediction)
-        ##print("Updated prediction to {}".format(self.prediction))
+        ###print("Updated prediction to {}".format(self.prediction))
 
     def updateActionSetSize(self,numerositySum,xcs):
         if self.experience < 1.0/xcs.beta:
@@ -150,18 +150,18 @@ class Classifier:
 
         
         self.fitness = self.fitness + xcs.beta * ((accuracy * self.numerosity) / float(accSum) - self.fitness)
-        #print("Updated fitness to {}".format(self.fitness))
+        ##print("Updated fitness to {}".format(self.fitness))
 
     def updateInvVar(self, xcs):
         self.calcInverseVariance(xcs)
-        print(self.inverseVariance)
+        #print(self.inverseVariance)
 
     def updateGatingPara(self, sumInverseVariance, countInf):
         if self.inverseVariance == np.inf:
             self.g_k = 1 / countInf
         else:
             self.g_k = self.inverseVariance / sumInverseVariance
-        #print(" {}".format(self.g_k))
+        ##print(" {}".format(self.g_k))
         #self.fitness = self.inverseVariance
         
 
@@ -362,7 +362,7 @@ class Classifier:
             self.inverseVariance = np.inf # should be np.inf 
         xcs.env.setDataRef(dataRef)
         
-        ##print("condition: {} , inverseVariance: {}".format(self.condition, self.inverseVariance))
+        #print("condition: {} , inverseVariance: {}".format(self.condition, self.inverseVariance))
         
         
         

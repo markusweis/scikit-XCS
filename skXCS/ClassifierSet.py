@@ -86,7 +86,7 @@ class ClassifierSet:
         for cl in self.actionSet:
             classifier = self.popSet[cl]
             classifier.increaseExperience()
-            print("Update prediction of classifier {}".format(cl))
+            #print("Update prediction of classifier {}".format(cl))
             classifier.updatePrediction(P,xcs)
             classifier.updatePredictionError(P,xcs)
             classifier.updateActionSetSize(actionSetNumerositySum,xcs)
@@ -113,7 +113,7 @@ class ClassifierSet:
         if xcs.use_inverse_variance:
             for clRef in self.actionSet:
                 classifier = self.popSet[clRef]
-                print("Updating Inverse Variance of cls {}:".format(clRef))
+                #print("Updating Inverse Variance of cls {}:".format(clRef))
                 classifier.updateInvVar(xcs)    
             sumInverseVariance = 0
             countInf = 0
@@ -121,17 +121,17 @@ class ClassifierSet:
                 if self.popSet[clRef].inverseVariance == np.inf:
                     countInf += 1
                 sumInverseVariance += self.popSet[clRef].inverseVariance
-            print("Summe der inversen Invarianzen: {}".format(sumInverseVariance))
-            print("Infinity Count: {}".format(countInf))
+            #print("Summe der inversen Invarianzen: {}".format(sumInverseVariance))
+            #print("Infinity Count: {}".format(countInf))
             for clRef in self.actionSet:    
-                print("Updating Gating Param of cls {}:".format(clRef))
+                #print("Updating Gating Param of cls {}:".format(clRef))
                 self.popSet[clRef].updateGatingPara(sumInverseVariance, countInf)
         
     
         i = 0
         for clRef in self.actionSet:
             classifier = self.popSet[clRef]
-            print("Update Fitness of classifier {}".format(clRef))
+            #print("Update Fitness of classifier {}".format(clRef))
             classifier.updateFitness(accuracySum,accuracies[i],xcs)
             i+=1
 
