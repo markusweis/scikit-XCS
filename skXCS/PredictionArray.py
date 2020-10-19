@@ -10,12 +10,16 @@ class PredictionArray:
         self.hasMatch = len(population.matchSet) != 0
         self.population = population
         self.xcs = xcs
+        
 
         #print("Match Set {}".format(population.matchSet))
 
         for eachClass in self.actionList:
             self.predictionArray[eachClass] = 0.0
             self.fitnesses[eachClass] = 0.0
+
+
+        
 
         for ref in population.matchSet:
             cl = population.popSet[ref]

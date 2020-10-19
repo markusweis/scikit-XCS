@@ -24,7 +24,7 @@ class Classifier:
         self.initTimeStamp = xcs.iterationCount
         self.deletionProb = None
 
-        self.inverseVariance = 0
+        self.inverseVariance = 0.1
         self.lossSum = 0
         self.matchCountMixing = 0
         self.g_k = 0
@@ -161,7 +161,7 @@ class Classifier:
             self.g_k = 1 / countInf
         else:
             self.g_k = self.inverseVariance / sumInverseVariance
-        ##print(" {}".format(self.g_k))
+        print(" {}".format(self.g_k))
         #self.fitness = self.inverseVariance
         
 
@@ -357,7 +357,7 @@ class Classifier:
                     self.lossSum += 1
             xcs.env.newInstance()
         if self.lossSum != 0:
-            self.inverseVariance =  (self.matchCountMixing) / (self.lossSum)
+            self.inverseVariance =  (self.matchCountMixing - xcs.env.formatData.numAttributes) / (self.lossSum)
         else: 
             self.inverseVariance = np.inf 
         xcs.env.setDataRef(dataRef)
