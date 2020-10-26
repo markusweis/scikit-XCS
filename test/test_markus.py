@@ -34,7 +34,22 @@ class test_markus(unittest.TestCase):
         print("kkkkkkkkkkkkkkkkkkkkkkkkkkk")
         print(clf.predict(clf.env.formatData.savedRawTrainingData[0]))
 
+    def testNew(self):
+        #Use StringEnumerator to gather data
+        converter = StringEnumerator("test/DataSets/Real/Multiplexer11.csv","class")
+        headers,actionLabel,dataFeatures,dataActions = converter.get_params()
 
+        #Shuffle data
+        formatted = np.insert(dataFeatures,dataFeatures.shape[1],dataActions,1)
+        np.random.shuffle(formatted)
+        dataFeatures = np.delete(formatted,-1,axis=1)
+        dataActions = formatted[:,-1]
+
+        #Initialize and train model
+
+        clf_inv_var = XCS(learning_iterations=1000, N=200, use_inverse_varinance=True)
+        clf_inv_var.fit(dataFeatures, dataActions)
+        breakpoint()
 
 
 

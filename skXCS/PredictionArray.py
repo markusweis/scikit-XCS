@@ -24,7 +24,7 @@ class PredictionArray:
         for ref in population.matchSet:
             cl = population.popSet[ref]
 
-            if xcs.use_inverse_variance:
+            if xcs.mixing_method == "inv-var-continous-update":
                 self.predictionArray[cl.action] += cl.prediction * cl.g_k
                 self.fitnesses[cl.action] += cl.g_k    
             else:

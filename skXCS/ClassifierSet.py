@@ -61,7 +61,7 @@ class ClassifierSet:
             print("Summe der inversen Invarianzen: {}".format(sumInverseVariance))
             print("Infinity Count: {}".format(countInf))
             for clRef in self.matchSet:    
-                print("Updating Gating Param of cls {}:".format(clRef))
+                #print("Updating Gating Param of cls {}:".format(clRef))
                 self.popSet[clRef].updateGatingPara(sumInverseVariance, countInf)
 
         xcs.timer.stopTimeMatching()

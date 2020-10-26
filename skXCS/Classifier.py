@@ -123,7 +123,10 @@ class Classifier:
             self.prediction = self.prediction + (P-self.prediction) / float(self.experience)
         else:
             self.prediction = self.prediction + xcs.beta * (P - self.prediction)
-        ###print("Updated prediction to {}".format(self.prediction))
+        
+        if xcs.mixing_method == "inv-var-continous-update":
+            self.calcInverseVariance(xcs)
+
 
     def updateActionSetSize(self,numerositySum,xcs):
         if self.experience < 1.0/xcs.beta:
@@ -161,7 +164,7 @@ class Classifier:
             self.g_k = 1 / countInf
         else:
             self.g_k = self.inverseVariance / sumInverseVariance
-        print(" {}".format(self.g_k))
+        #   print(" {}".format(self.g_k))
         #self.fitness = self.inverseVariance
         
 
@@ -346,7 +349,7 @@ class Classifier:
             deletionVote = self.actionSetSize * self.numerosity * meanFitness / (self.fitness / self.numerosity)
         return deletionVote
 
-    def calcInverseVariance(self, xcs):
+    def calcInverseVarianceOld(self, xcs):
         dataRef = xcs.env.dataRef
         xcs.env.resetDataRef()
         for _i in range(len(xcs.env.formatData.savedRawTrainingData)):
@@ -359,11 +362,32 @@ class Classifier:
         if self.lossSum != 0:
             self.inverseVariance =  (self.matchCountMixing - xcs.env.formatData.numAttributes) / (self.lossSum)
         else: 
-            self.inverseVariance = np.inf 
+            self.inverseVariance = 1000 
         xcs.env.setDataRef(dataRef)
         
         #print("condition: {} , inverseVariance: {}".format(self.condition, self.inverseVariance))
         
+    def calcInverseVariance(self, xcs):
+        dataRef = xcs.env.dataRef
+        xcs.env.resetDataRef()
+        for _i in range(xcs.env.formatData.numTrainInstances):
+            if self.match(xcs.env.getTrainState(), xcs):
+                self.matchCountMixing += 1
+                realAction = xcs.env.currentTrainPhenotype
+                # Wenn action korrekt 1000, sonst 0
+                if(realAction != self.action):
+                    P = 0
+                else:
+                    P = 1000
+                self.lossSum += abs(self.prediction - P)
+            xcs.env.newInstance()
+        if self.lossSum != 0:
+            self.inverseVariance =  (self.matchCountMixing - xcs.env.formatData.numAttributes) / (self.lossSum)
+        else: 
+            self.inverseVariance = np.inf
+        xcs.env.setDataRef(dataRef)
         
+
+# Wenn noch Zeit, dann Inkrementell 
         
     

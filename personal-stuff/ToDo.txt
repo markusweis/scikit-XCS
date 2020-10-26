@@ -1,0 +1,4 @@
+XCS(learning_iterations=1000, N=10): Division by zero schon im ursprünglichen Projekt
+Überprüfung der Parameter in der Fit statt im Konstruktor
+Auswertung Gleichverteilung, Inverse Variance, Normal XCS
+Inverse Variance nur am ende berechnen oder einen Inkrementellen Ansatz benutzen 

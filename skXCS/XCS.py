@@ -18,7 +18,7 @@ class XCS(BaseEstimator,ClassifierMixin):
     def __init__(self,learning_iterations=10000,N=1000,p_general=0.5,beta=0.2,alpha=0.1,e_0=10,nu=5,theta_GA=25,p_crossover=0.8,p_mutation=0.04,
                  theta_del=20,delta=0.1,init_prediction=10,init_e=0,init_fitness=0.01,p_explore=0.5,theta_matching=None,do_GA_subsumption=True,
                  do_action_set_subsumption=False,max_payoff=1000,theta_sub=20,theta_select=0.5,discrete_attribute_limit=10,specified_attributes=np.array([]),
-                 random_state=None,prediction_error_reduction=0.25,fitness_reduction=0.1,reboot_filename=None, use_inverse_varinance=False):
+                 random_state=None,prediction_error_reduction=0.25,fitness_reduction=0.1,reboot_filename=None, use_inverse_varinance=False, mixing_method="normal"):
 
             
             
@@ -60,6 +60,9 @@ class XCS(BaseEstimator,ClassifierMixin):
 
             self._i = 0
 
+            if not mixing_method in ["inv-var-continous-update", "inv-var-only-mixing", "normal", "evenly-distributed"]:
+                raise Exception("must be in this stuff")
+            self.mixing_method = mixing_method
             #learning_iterations
             if not self.checkIsInt(learning_iterations):
                 raise Exception("learning_iterations param must be nonnegative integer")
@@ -371,7 +374,7 @@ class XCS(BaseEstimator,ClassifierMixin):
         self.trackingObj.resetAll()
         shouldExplore = random.random() < self.p_explore
         if shouldExplore:
-            #print("\n----------------------------------\nIteration {} -> Exploration".format(self._i))
+            print("\n----------------------------------\nIteration {} -> Exploration".format(self._i))
             self.population.createMatchSet(state,self)
             predictionArray = PredictionArray(self.population,self)
             actionWinner = predictionArray.randomActionWinner()
@@ -381,7 +384,7 @@ class XCS(BaseEstimator,ClassifierMixin):
             self.population.runGA(state,self)
             self.population.deletion(self)
         else:
-            #print("\n----------------------------------\nIteration {}".format(self._i))
+            print("\n----------------------------------\nIteration {}".format(self._i))
             self.population.createMatchSet(state, self)
             predictionArray = PredictionArray(self.population, self)
             actionWinner = predictionArray.bestActionWinner()
@@ -543,7 +546,7 @@ class XCS(BaseEstimator,ClassifierMixin):
             with open(filename, mode='w') as file:
                 writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
-                writer.writerow(headerNames + [className] + ["Fitness","Prediction","Prediction Error","Accuracy", "Numerosity", "Avg Action Set Size",
+                writer.writerow(headerNames + [className] + ["Fitness", "Inverse Variance", "g_k", "Prediction","Prediction Error","Accuracy", "Numerosity", "Avg Action Set Size",
                                                              "TimeStamp GA", "Iteration Initialized", "Specificity",
                                                              "Deletion Probability", "Experience", "Match Count"])
 
@@ -564,6 +567,8 @@ class XCS(BaseEstimator,ClassifierMixin):
 
                     a.append(classifier.action)
                     a.append(classifier.fitness)
+                    a.append(classifier.inverseVariance)
+                    a.append(classifier.g_k)
                     a.append(classifier.prediction)
                     a.append(classifier.predictionError)
                     a.append(classifier.getAccuracy(self))
