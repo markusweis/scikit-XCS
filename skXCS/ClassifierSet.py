@@ -347,10 +347,27 @@ class ClassifierSet:
 
     ####Evaluation####
     def makeEvaluationMatchSet(self,state,xcs):
+        
         for i in range(len(self.popSet)):
             classifier = self.popSet[i]
             if classifier.match(state,xcs):
                 self.matchSet.append(i)
+
+        if xcs.mixing_method == "inv-var-only-mixing":
+            # Update g_k
+            sumInverseVariance = 0
+            countInf = 0
+            for clRef in self.matchSet:
+                if self.popSet[clRef].inverseVariance == np.inf:
+                    countInf += 1
+                sumInverseVariance += self.popSet[clRef].inverseVariance
+            #print("Summe der inversen Invarianzen: {}".format(sumInverseVariance))
+            #print("Infinity Count: {}".format(countInf))
+            for clRef in self.matchSet:    
+                #print("Updating Gating Param of cls {}:".format(clRef))
+                self.popSet[clRef].updateGatingPara(sumInverseVariance, countInf)
+
+
 
     def getAveGenerality(self,xcs):
         generalitySum = 0

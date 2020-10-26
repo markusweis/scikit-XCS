@@ -361,7 +361,9 @@ class XCS(BaseEstimator,ClassifierMixin):
 
         self.saveFinalMetrics()
         self.hasTrained = True
-
+        if self.mixing_method == "inv-var-only-mixing":
+            for clf in self.population.popSet:
+                clf.calcInverseVariance(self)
         
         return self
 
@@ -370,8 +372,10 @@ class XCS(BaseEstimator,ClassifierMixin):
     def runIteration(self,state):
         self.trackingObj.resetAll()
         shouldExplore = random.random() < self.p_explore
+        if self._i % 50 == 0:
+            print("\n----------------------------------\nIteration {}".format(self._i))
+            
         if shouldExplore:
-            print("\n----------------------------------\nIteration {} -> Exploration".format(self._i))
             self.population.createMatchSet(state,self)
             predictionArray = PredictionArray(self.population,self)
             actionWinner = predictionArray.randomActionWinner()
@@ -381,7 +385,6 @@ class XCS(BaseEstimator,ClassifierMixin):
             self.population.runGA(state,self)
             self.population.deletion(self)
         else:
-            print("\n----------------------------------\nIteration {}".format(self._i))
             self.population.createMatchSet(state, self)
             predictionArray = PredictionArray(self.population, self)
             actionWinner = predictionArray.bestActionWinner()
@@ -483,7 +486,7 @@ class XCS(BaseEstimator,ClassifierMixin):
         for instance in range(numInstances):
             state = X[instance]
             self.population.makeEvaluationMatchSet(state,self)
-            predictionArray = PredictionArray(self.population, self)
+            predictionArray = PredictionArray(self.population, self, False)
             actionWinner = predictionArray.bestActionWinner()
             predictionList.append(actionWinner)
             self.population.clearSets()
