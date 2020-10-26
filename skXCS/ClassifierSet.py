@@ -51,7 +51,7 @@ class ClassifierSet:
             self.popSet[ref].matchCount += 1
 
 
-        if xcs.use_inverse_variance:
+        if xcs.mixing_method == "inv-var-continous-update":
             sumInverseVariance = 0
             countInf = 0
             for clRef in self.matchSet:
@@ -128,7 +128,7 @@ class ClassifierSet:
 
 
 
-        if xcs.use_inverse_variance:
+        if xcs.mixing_method == "inv-var-continous-update":
             for clRef in self.actionSet:
                 classifier = self.popSet[clRef]
                 #print("Updating Inverse Variance of cls {}:".format(clRef))

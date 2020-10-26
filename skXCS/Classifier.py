@@ -124,8 +124,6 @@ class Classifier:
         else:
             self.prediction = self.prediction + xcs.beta * (P - self.prediction)
         
-        if xcs.mixing_method == "inv-var-continous-update":
-            self.calcInverseVariance(xcs)
 
 
     def updateActionSetSize(self,numerositySum,xcs):

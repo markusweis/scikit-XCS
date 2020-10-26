@@ -18,7 +18,7 @@ class XCS(BaseEstimator,ClassifierMixin):
     def __init__(self,learning_iterations=10000,N=1000,p_general=0.5,beta=0.2,alpha=0.1,e_0=10,nu=5,theta_GA=25,p_crossover=0.8,p_mutation=0.04,
                  theta_del=20,delta=0.1,init_prediction=10,init_e=0,init_fitness=0.01,p_explore=0.5,theta_matching=None,do_GA_subsumption=True,
                  do_action_set_subsumption=False,max_payoff=1000,theta_sub=20,theta_select=0.5,discrete_attribute_limit=10,specified_attributes=np.array([]),
-                 random_state=None,prediction_error_reduction=0.25,fitness_reduction=0.1,reboot_filename=None, use_inverse_varinance=False, mixing_method="normal"):
+                 random_state=None,prediction_error_reduction=0.25,fitness_reduction=0.1,reboot_filename=None, mixing_method="normal"):
 
             
             
@@ -225,9 +225,7 @@ class XCS(BaseEstimator,ClassifierMixin):
                 except:
                     raise Exception("random_state param must be integer or None")
 
-            """ if not isinstance(use_inverse_varinance, bool):
-                raise Exception("use_inverse_variance param must be bool, is is {}".format(use_inverse_varinance)) """
-
+            
             self.learning_iterations = learning_iterations
             self.N = N
             self.p_general = p_general
@@ -255,7 +253,6 @@ class XCS(BaseEstimator,ClassifierMixin):
             self.random_state = random_state
             self.prediction_error_reduction = prediction_error_reduction
             self.fitness_reduction = fitness_reduction
-            self.use_inverse_variance = use_inverse_varinance
 
             self.hasTrained = False
             self.trackingObj = TempTrackingObj()

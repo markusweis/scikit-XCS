@@ -59,7 +59,7 @@ class PredictionArray:
     def randomActionWinner(self):
         """ Selects an action randomly. The function assures that the chosen action is represented by at least one classifier. """
         
-        if self.xcs.use_inverse_variance:
+        if self.xcs.mixing_method == "inv-var-continous-update":
             return random.choice(self.actionList)
         else:
             while True:
