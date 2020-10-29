@@ -5,6 +5,7 @@
 % Adjust this to the language used.
 \usepackage[ngerman]{babel}
 \usepackage{hyperref}
+\usepackage{amsmath}
 
 \begin{document}
 
@@ -22,11 +23,21 @@
 \section{Einleitung}
 In modernen Michigan-Style Learning Classifier Systemen (LCS) wird üblicherweise aus einzelnen Classifier Vorhersagen eine Gesamtvorhersage berechnet. In XCS wird die Prediction über eine Fitness gewichtete Summe der einzelnen Predictions berechnet. Diese Fitness ist ein heuristisch Parameter, der inkrementell berechnet wird. Wilson schreibt, dass es wohl verschieden Möglichkeiten gibt, die Gesamtvorhersage zu berechnen, behält aber dieses Modell ohne weitere Ausführung in seinen späteren Arbeiten bei \cite{Wilson95}. 
 Drugowitsch setzt in seinem Buch "Design and Analysis of Learning Classifier Systems - A Probabilistic Approach" \cite{book} dort an. Er beschreibt verschiedene Mixing Modelle und wertet diese empirisch aus. 
-Einen dieser Modelle wird in dieser Arbeit beschrieben und eine Implementierung versucht: Inverse Variance Mixing. Aus den heuristisch Modellen schnitt dieses stets am besten ab, während die Laufzeit der  analytischen Lösung nicht angemessen ist. Das Modell wird im Open-Source Projekt scikit-XCS \cite{repo} implementiert. 
+Einen dieser Modelle wird in der vorliegenden Arbeit beschrieben und eine Implementierung versucht: Inverse Variance Mixing. Aus den heuristisch Modellen schnitt dieses stets am besten ab, während die Laufzeit der  analytischen Lösung nicht angemessen ist. Das Modell wird im Open-Source Projekt scikit-XCS \cite{repo}, einer scikit-learn Erweiterung für XCS, implementiert. 
 
 \section{Inverse Variance Mixing}
+Die Definition des Inverse Variance Mixing ist \cite{book} entnommen. 
+
+$$ \tau_{k}^{-1} = (c_{k} - D^{X}) \sum_{n}^{N} m(x_{n}) (\hat{w}_{k}^T x_{n} - y_{n})^{2} $$
+
 
 \section{Probleme}
+Klassifikation statt Regression 
+Unendlich 
+Minus 
+Batch Ansatz statt Iterativer Ansatz -> Laufzeit
+Nicht für XCS gedacht sondern für allgemeinere LCS Systeme 
+scikit trainiert die Modelle immer im ganzen. Ich konnte die Accuracy nicht Ploten lassen 
 
 \section{Ergebnisse}
 
