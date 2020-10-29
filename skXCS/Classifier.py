@@ -347,7 +347,7 @@ class Classifier:
             deletionVote = self.actionSetSize * self.numerosity * meanFitness / (self.fitness / self.numerosity)
         return deletionVote
 
-    def calcInverseVarianceOld(self, xcs):
+    def calcInverseVariance(self, xcs):
         dataRef = xcs.env.dataRef
         xcs.env.resetDataRef()
         for _i in range(len(xcs.env.formatData.savedRawTrainingData)):
@@ -365,7 +365,7 @@ class Classifier:
         
         #print("condition: {} , inverseVariance: {}".format(self.condition, self.inverseVariance))
         
-    def calcInverseVariance(self, xcs):
+    def calcInverseVarianceNew(self, xcs):
         dataRef = xcs.env.dataRef
         xcs.env.resetDataRef()
         for _i in range(xcs.env.formatData.numTrainInstances):

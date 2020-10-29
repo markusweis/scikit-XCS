@@ -1,0 +1,53 @@
+\documentclass{ocsmnar}
+
+
+
+% Adjust this to the language used.
+\usepackage[ngerman]{babel}
+\usepackage{hyperref}
+
+\begin{document}
+
+
+\title{Implementierung und Evaluation von Mixing-Modell-Alternativen für XCS}
+
+
+\author{Markus Weis}
+
+\maketitle
+
+
+
+
+\section{Einleitung}
+In modernen Michigan-Style Learning Classifier Systemen (LCS) wird üblicherweise aus einzelnen Classifier Vorhersagen eine Gesamtvorhersage berechnet. In XCS wird die Prediction über eine Fitness gewichtete Summe der einzelnen Predictions berechnet. Diese Fitness ist ein heuristisch Parameter, der inkrementell berechnet wird. Wilson schreibt, dass es wohl verschieden Möglichkeiten gibt, die Gesamtvorhersage zu berechnen, behält aber dieses Modell ohne weitere Ausführung in seinen späteren Arbeiten bei \cite{Wilson95}. 
+Drugowitsch setzt in seinem Buch "Design and Analysis of Learning Classifier Systems - A Probabilistic Approach" \cite{book} dort an. Er beschreibt verschiedene Mixing Modelle und wertet diese empirisch aus. 
+Einen dieser Modelle wird in dieser Arbeit beschrieben und eine Implementierung versucht: Inverse Variance Mixing. Aus den heuristisch Modellen schnitt dieses stets am besten ab, während die Laufzeit der  analytischen Lösung nicht angemessen ist. Das Modell wird im Open-Source Projekt scikit-XCS \cite{repo} implementiert. 
+
+\section{Inverse Variance Mixing}
+
+\section{Probleme}
+
+\section{Ergebnisse}
+
+\section{Fazit}
+
+
+
+
+
+XCS ist ein Michigan-Style Learning Classifier System 
+
+
+
+
+
+
+
+
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{References}
+
+
+\end{document}

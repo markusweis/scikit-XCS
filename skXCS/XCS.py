@@ -373,7 +373,8 @@ class XCS(BaseEstimator,ClassifierMixin):
         self.trackingObj.resetAll()
         shouldExplore = random.random() < self.p_explore
         if self._i % 50 == 0:
-            print("\n----------------------------------\nIteration {}".format(self._i))
+            #print("\n----------------------------------\nIteration {}".format(self._i))
+            pass
             
         if shouldExplore:
             self.population.createMatchSet(state,self)
@@ -486,7 +487,7 @@ class XCS(BaseEstimator,ClassifierMixin):
         for instance in range(numInstances):
             state = X[instance]
             self.population.makeEvaluationMatchSet(state,self)
-            predictionArray = PredictionArray(self.population, self, False)
+            predictionArray = PredictionArray(self.population, self, is_training=False)
             actionWinner = predictionArray.bestActionWinner()
             predictionList.append(actionWinner)
             self.population.clearSets()
