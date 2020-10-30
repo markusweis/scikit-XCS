@@ -51,17 +51,17 @@ class ClassifierSet:
             self.popSet[ref].matchCount += 1
 
 
-        if xcs.use_inverse_variance:
+        if xcs.mixing_method == "inv-var-continous-update":
             sumInverseVariance = 0
             countInf = 0
             for clRef in self.matchSet:
                 if self.popSet[clRef].inverseVariance == np.inf:
                     countInf += 1
                 sumInverseVariance += self.popSet[clRef].inverseVariance
-            print("Summe der inversen Invarianzen: {}".format(sumInverseVariance))
-            print("Infinity Count: {}".format(countInf))
+            #print("Summe der inversen Invarianzen: {}".format(sumInverseVariance))
+            #print("Infinity Count: {}".format(countInf))
             for clRef in self.matchSet:    
-                print("Updating Gating Param of cls {}:".format(clRef))
+                #print("Updating Gating Param of cls {}:".format(clRef))
                 self.popSet[clRef].updateGatingPara(sumInverseVariance, countInf)
 
         xcs.timer.stopTimeMatching()
@@ -128,7 +128,7 @@ class ClassifierSet:
 
 
 
-        if xcs.use_inverse_variance:
+        if xcs.mixing_method == "inv-var-continous-update":
             for clRef in self.actionSet:
                 classifier = self.popSet[clRef]
                 #print("Updating Inverse Variance of cls {}:".format(clRef))
@@ -347,10 +347,28 @@ class ClassifierSet:
 
     ####Evaluation####
     def makeEvaluationMatchSet(self,state,xcs):
+        
         for i in range(len(self.popSet)):
             classifier = self.popSet[i]
             if classifier.match(state,xcs):
                 self.matchSet.append(i)
+
+        if xcs.mixing_method == "inv-var-only-mixing":
+            print("Updating g_k")
+            # Update g_k
+            sumInverseVariance = 0
+            countInf = 0
+            for clRef in self.matchSet:
+                if self.popSet[clRef].inverseVariance == np.inf:
+                    countInf += 1
+                sumInverseVariance += self.popSet[clRef].inverseVariance
+            #print("Summe der inversen Invarianzen: {}".format(sumInverseVariance))
+            #print("Infinity Count: {}".format(countInf))
+            for clRef in self.matchSet:    
+                #print("Updating Gating Param of cls {}:".format(clRef))
+                self.popSet[clRef].updateGatingPara(sumInverseVariance, countInf)
+
+
 
     def getAveGenerality(self,xcs):
         generalitySum = 0

@@ -1,0 +1,59 @@
+This is BibTeX, Version 0.99d (MiKTeX 2.9.7400 64-bit)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: XCS_mixing_models.aux
+The style file: ACM-Reference-Format.bst
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Database file #1: References.bib
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'glb_str_end' (item size: 4) to 20 items.
+Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
+Reallocating 'global_strs' (item size: 1) to 4000000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Warning--empty publisher in book
+Warning--empty address in book
+Warning--no number and no volume in repo
+Warning--page numbers missing in both pages and numpages fields in repo
+You've used 3 entries,
+            5945 wiz_defined-function locations,
+            1352 strings with 15078 characters,
+and the built_in function-call counts, 3032 in all, are:
+= -- 438
+> -- 60
+< -- 0
++ -- 15
+- -- 24
+* -- 170
+:= -- 288
+add.period$ -- 16
+call.type$ -- 3
+change.case$ -- 15
+chr.to.int$ -- 3
+cite$ -- 7
+duplicate$ -- 274
+empty$ -- 187
+format.name$ -- 24
+if$ -- 744
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 10
+newline$ -- 75
+num.names$ -- 24
+pop$ -- 87
+preamble$ -- 1
+purify$ -- 42
+quote$ -- 0
+skip$ -- 100
+stack$ -- 0
+substring$ -- 212
+swap$ -- 34
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 47
+warning$ -- 4
+while$ -- 25
+width$ -- 0
+write$ -- 100
+(There were 4 warnings)

@@ -2,7 +2,7 @@ import random
 import numpy as np
 
 class PredictionArray:
-    def __init__(self,population,xcs):
+    def __init__(self,population,xcs, is_training=True):
         self.predictionArray = {}
         self.fitnesses = {}
         self.actionList = xcs.env.formatData.phenotypeList
@@ -10,6 +10,7 @@ class PredictionArray:
         self.hasMatch = len(population.matchSet) != 0
         self.population = population
         self.xcs = xcs
+        self.is_training = is_training
         
 
         #print("Match Set {}".format(population.matchSet))
@@ -24,9 +25,15 @@ class PredictionArray:
         for ref in population.matchSet:
             cl = population.popSet[ref]
 
-            if xcs.use_inverse_variance:
+            if xcs.mixing_method == "inv-var-continous-update":
                 self.predictionArray[cl.action] += cl.prediction * cl.g_k
                 self.fitnesses[cl.action] += cl.g_k    
+            elif xcs.mixing_method == "inv-var-only-mixing" and not self.is_training:
+                self.predictionArray[cl.action] += cl.prediction * cl.g_k
+                self.fitnesses[cl.action] += cl.g_k  
+            elif xcs.mixing_method == "evenly-distributed" and not self.is_training:
+                self.predictionArray[cl.action] += cl.prediction
+                self.fitnesses[cl.action] += 1
             else:
                 self.predictionArray[cl.action] += cl.prediction*cl.fitness
                 self.fitnesses[cl.action] += cl.fitness
@@ -59,7 +66,7 @@ class PredictionArray:
     def randomActionWinner(self):
         """ Selects an action randomly. The function assures that the chosen action is represented by at least one classifier. """
         
-        if self.xcs.use_inverse_variance:
+        if self.xcs.mixing_method == "inv-var-continous-update":
             return random.choice(self.actionList)
         else:
             while True:
