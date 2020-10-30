@@ -1,11 +1,11 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7400 64-bit) (preloaded format=xelatex 2020.6.2)  29 OCT 2020 16:22
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 2.9.7440 64-bit) (preloaded format=xelatex 2020.5.31)  30 OCT 2020 11:24
 entering extended mode
-**d:/source/Uni/scikit-XCS/latex/XCS_mixing_models.tex
-(d:/source/Uni/scikit-XCS/latex/XCS_mixing_models.tex
+**c:/Users/Markus/source/repos/Forschungsmodul-OC/scikit-XCS/latex/XCS_mixing_models.tex
+(c:/Users/Markus/source/repos/Forschungsmodul-OC/scikit-XCS/latex/XCS_mixing_models.tex
 LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-04-06> (ocsmnar.cls
+L3 programming layer <2020-05-15> (ocsmnar.cls
 Document Class: ocsmnar 2020/04/23 OC seminar class
-("C:\Program Files\MiKTeX 2.9\tex/latex/acmart\acmart.cls"
+(C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/acmart\acmart.cls
 Document Class: acmart 2020/04/30 v1.71 Typesetting articles for the Association for Computing Machinery
 ("C:\Program Files\MiKTeX 2.9\tex/latex/xkeyval\xkeyval.sty"
 Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
@@ -15,7 +15,7 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
  ("C:\Program Files\MiKTeX 2.9\tex/generic/xkeyval\keyval.tex"))
 \XKV@depth=\count163
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-)) ("C:\Program Files\MiKTeX 2.9\tex/latex/xstring\xstring.sty" ("C:\Program Files\MiKTeX 2.9\tex/generic/xstring\xstring.tex"
+)) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/xstring\xstring.sty (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/generic/xstring\xstring.tex
 \integerpart=\count164
 Invalid UTF-8 byte or sequence at line 35 replaced by U+FFFD.
 \decimalpart=\count165
@@ -171,8 +171,8 @@ Package acmart Info: Not using timestamp mode on input line 146.
 Package acmart Info: Not using authordraft mode on input line 156.
 Class acmart Info: Using format sigconf, number 4 on input line 165.
 Class acmart Info: Using fontsize 9pt on input line 249.
- ("C:\Program Files\MiKTeX 2.9\tex/latex/amscls\amsart.cls"
-Document Class: amsart 2017/10/31 v2.20.4
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/amscls\amsart.cls
+Document Class: amsart 2020/05/21 v2.20.5
 \linespacing=\dimen134
 \normalparindent=\dimen135
 \normaltopskip=\skip47
@@ -231,7 +231,7 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 398.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 389.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\amsfonts.sty"
@@ -265,7 +265,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 \thm@postskip=\skip55
 \thm@headsep=\skip56
 \dth@everypar=\toks27
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\microtype.sty"
+) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/microtype\microtype.sty
 Package: microtype 2019/11/18 v2.7d Micro-typographical refinements (RS)
 \MT@toks=\toks28
 \MT@count=\count186
@@ -273,17 +273,17 @@ LaTeX Info: Redefining \textls on input line 790.
 \MT@outer@kern=\dimen146
 LaTeX Info: Redefining \textmicrotypecontext on input line 1354.
 \MT@listname@count=\count187
- ("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\microtype-xetex.def"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/microtype\microtype-xetex.def
 File: microtype-xetex.def 2019/11/18 v2.7d Definitions specific to xetex (RS)
 LaTeX Info: Redefining \lsstyle on input line 258.
 )
 Package microtype Info: Loading configuration file microtype.cfg.
- ("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\microtype.cfg"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/microtype\microtype.cfg
 File: microtype.cfg 2019/11/18 v2.7d microtype main configuration file (RS)
 )) ("C:\Program Files\MiKTeX 2.9\tex/latex/etoolbox\etoolbox.sty"
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count188
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/booktabs\booktabs.sty"
+) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen147
 \lightrulewidth=\dimen148
@@ -302,13 +302,13 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisruleclass=\count191
 \@lastruleclass=\count192
 \@thisrulewidth=\dimen159
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/refcount\refcount.sty"
+) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/refcount\refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
- ("C:\Program Files\MiKTeX 2.9\tex/generic/ltxcmds\ltxcmds.sty"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/generic/ltxcmds\ltxcmds.sty
 Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
-) ("C:\Program Files\MiKTeX 2.9\tex/generic/infwarerr\infwarerr.sty"
+) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/generic/infwarerr\infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-)) ("C:\Program Files\MiKTeX 2.9\tex/latex/totpages\totpages.sty"
+)) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/totpages\totpages.sty
 Package: totpages 2005/09/19 v2.00 Totpages Package (muewi)
  ("C:\Program Files\MiKTeX 2.9\tex/latex/ms\everyshi.sty"
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
@@ -316,84 +316,84 @@ Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
 Package: environ 2014/05/04 v0.3 A new way to define environments
  ("C:\Program Files\MiKTeX 2.9\tex/latex/trimspaces\trimspaces.sty"
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
-)) ("C:\Program Files\MiKTeX 2.9\tex/latex/textcase\textcase.sty"
+)) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/textcase\textcase.sty
 Package: textcase 2019/09/14 v1.00 Text only upper/lower case changing (DPC)
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/natbib\natbib.sty"
+) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/natbib\natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip57
 \bibsep=\skip58
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count193
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hyperref.sty"
-Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
+Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
  ("C:\Program Files\MiKTeX 2.9\tex/latex/pdftexcmds\pdftexcmds.sty"
 Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode not found.
-) ("C:\Program Files\MiKTeX 2.9\tex/generic/kvsetkeys\kvsetkeys.sty"
+) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/generic/kvsetkeys\kvsetkeys.sty
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
-) ("C:\Program Files\MiKTeX 2.9\tex/generic/kvdefinekeys\kvdefinekeys.sty"
+) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/generic/kvdefinekeys\kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) ("C:\Program Files\MiKTeX 2.9\tex/generic/pdfescape\pdfescape.sty"
+) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/generic/pdfescape\pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/hycolor\hycolor.sty"
+) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/letltxmacro\letltxmacro.sty"
+) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/letltxmacro\letltxmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/auxhook\auxhook.sty"
+) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/auxhook\auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/kvoptions\kvoptions.sty"
+) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
 \@linkdim=\dimen160
 \Hy@linkcounter=\count194
 \Hy@pagecounter=\count195
  ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\pd1enc.def"
-File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
-) ("C:\Program Files\MiKTeX 2.9\tex/generic/intcalc\intcalc.sty"
+File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
+) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
-) ("C:\Program Files\MiKTeX 2.9\tex/generic/etexcmds\etexcmds.sty"
+) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/generic/etexcmds\etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count196
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 4421.
-Package hyperref Info: Option `unicode' set `true' on input line 4421.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 4338.
+Package hyperref Info: Option `unicode' set `true' on input line 4338.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\puenc.def"
-File: puenc.def 2020/01/14 v7.00d Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2020-05-15 v7.00e Hyperref: PDF Unicode definition (HO)
 )
-Package hyperref Info: Hyper figures OFF on input line 4547.
-Package hyperref Info: Link nesting OFF on input line 4552.
-Package hyperref Info: Hyper index ON on input line 4555.
-Package hyperref Info: Plain pages OFF on input line 4562.
-Package hyperref Info: Backreferencing OFF on input line 4567.
+Package hyperref Info: Hyper figures OFF on input line 4464.
+Package hyperref Info: Link nesting OFF on input line 4469.
+Package hyperref Info: Hyper index ON on input line 4472.
+Package hyperref Info: Plain pages OFF on input line 4479.
+Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4800.
+Package hyperref Info: Bookmarks ON on input line 4717.
 \c@Hy@tempcnt=\count197
  ("C:\Program Files\MiKTeX 2.9\tex/latex/url\url.sty"
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5159.
+LaTeX Info: Redefining \url on input line 5076.
 \XeTeXLinkMargin=\dimen161
- ("C:\Program Files\MiKTeX 2.9\tex/generic/bitset\bitset.sty"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- ("C:\Program Files\MiKTeX 2.9\tex/generic/bigintcalc\bigintcalc.sty"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/generic/bigintcalc\bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
 \Fld@menulength=\count198
 \Field@Width=\dimen162
 \Fld@charsize=\dimen163
-Package hyperref Info: Hyper figures OFF on input line 6430.
-Package hyperref Info: Link nesting OFF on input line 6435.
-Package hyperref Info: Hyper index ON on input line 6438.
-Package hyperref Info: backreferencing OFF on input line 6445.
-Package hyperref Info: Link coloring OFF on input line 6450.
-Package hyperref Info: Link coloring with OCG OFF on input line 6455.
-Package hyperref Info: PDF/A mode OFF on input line 6460.
-LaTeX Info: Redefining \ref on input line 6500.
-LaTeX Info: Redefining \pageref on input line 6504.
- ("C:\Program Files\MiKTeX 2.9\tex/generic/atbegshi\atbegshi.sty"
+Package hyperref Info: Hyper figures OFF on input line 6347.
+Package hyperref Info: Link nesting OFF on input line 6352.
+Package hyperref Info: Hyper index ON on input line 6355.
+Package hyperref Info: backreferencing OFF on input line 6362.
+Package hyperref Info: Link coloring OFF on input line 6367.
+Package hyperref Info: Link coloring with OCG OFF on input line 6372.
+Package hyperref Info: PDF/A mode OFF on input line 6377.
+LaTeX Info: Redefining \ref on input line 6417.
+LaTeX Info: Redefining \pageref on input line 6421.
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/generic/atbegshi\atbegshi.sty
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
 \Hy@abspage=\count266
@@ -402,8 +402,8 @@ Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
 Package hyperref Info: Driver (autodetected): hxetex.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hxetex.def"
-File: hxetex.def 2020/01/14 v7.00d Hyperref driver for XeTeX
- ("C:\Program Files\MiKTeX 2.9\tex/generic/stringenc\stringenc.sty"
+File: hxetex.def 2020-05-15 v7.00e Hyperref driver for XeTeX
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/generic/stringenc\stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
 \pdfm@box=\box48
@@ -411,11 +411,11 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 \HyField@AnnotCount=\count270
 \Fld@listcount=\count271
 \c@bookmark@seq@number=\count272
- ("C:\Program Files\MiKTeX 2.9\tex/latex/rerunfilecheck\rerunfilecheck.sty"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/rerunfilecheck\rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
- ("C:\Program Files\MiKTeX 2.9\tex/latex/atveryend\atveryend.sty"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/atveryend\atveryend.sty
 Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
-) ("C:\Program Files\MiKTeX 2.9\tex/generic/uniquecounter\uniquecounter.sty"
+) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/generic/uniquecounter\uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
@@ -450,7 +450,7 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/geometry\geometry.sty"
+) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  ("C:\Program Files\MiKTeX 2.9\tex/generic/iftex\ifvtex.sty"
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
@@ -467,9 +467,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layouthoffset=\dimen172
 \Gm@layoutvoffset=\dimen173
 \Gm@dimlist=\toks29
- ("C:\Program Files\MiKTeX 2.9\tex/xelatex/xetexconfig\geometry.cfg")) ("C:\Program Files\MiKTeX 2.9\tex/latex/ncctools\manyfoot.sty"
+ ("C:\Program Files\MiKTeX 2.9\tex/xelatex/xetexconfig\geometry.cfg")) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/ncctools\manyfoot.sty
 Package: manyfoot 2019/08/03 v1.11 Many Footnote Levels Package (NCC)
- ("C:\Program Files\MiKTeX 2.9\tex/latex/ncctools\nccfoots.sty"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/ncctools\nccfoots.sty
 Package: nccfoots 2005/02/03 v1.2 NCC Footnotes Package (NCC)
 )
 \MFL@columnwidth=\dimen174
@@ -478,7 +478,7 @@ Package: nccfoots 2005/02/03 v1.2 NCC Footnotes Package (NCC)
 \c@footnoteauthorsaddresses=\count276
 \footinscopyrightpermission=\insert251
 \c@footnotecopyrightpermission=\count277
- ("C:\Program Files\MiKTeX 2.9\tex/latex/cmap\cmap.sty"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/cmap\cmap.sty
 Package: cmap 2008/03/06 v1.0h CMap support: searchable PDF
 
 
@@ -489,7 +489,7 @@ Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 112.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)) ("C:\Program Files\MiKTeX 2.9\tex/latex/libertine\libertine.sty"
+)) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/libertine\libertine.sty
 Package: libertine 2020/03/26 (Bob Tennent) Supports Libertine and Biolinum fonts for all LaTeX engines.
  ("C:\Program Files\MiKTeX 2.9\tex/generic/iftex\ifxetex.sty"
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
@@ -498,20 +498,21 @@ Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/base\textcomp.sty"
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/fontspec\fontspec.sty" ("C:\Program Files\MiKTeX 2.9\tex/latex/l3packages/xparse\xparse.sty" ("C:\Program Files\MiKTeX 2.9\tex/latex/l3kernel\expl3.sty"
-Package: expl3 2020-04-06 L3 programming layer (loader) 
+Package: expl3 2020-05-15 L3 programming layer (loader) 
  ("C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-xdvipdfmx.def"
-File: l3backend-xdvipdfmx.def 2020-03-12 L3 backend support: xdvipdfmx
+File: l3backend-xdvipdfmx.def 2020-05-05 L3 backend support: xdvipdfmx
 \g__graphics_track_int=\count278
 \l__pdf_internal_box=\box49
 \g__pdf_backend_object_int=\count279
 \g__pdf_backend_annotation_int=\count280
 ))
-Package: xparse 2020-03-06 L3 Experimental document command parser
+Package: xparse 2020-05-15 L3 Experimental document command parser
+ ("C:\Program Files\MiKTeX 2.9\tex/latex/l3packages/xparse\xparse-generic.tex"
 \l__xparse_current_arg_int=\count281
 \g__xparse_grabber_int=\count282
 \l__xparse_m_args_int=\count283
 \l__xparse_v_nesting_int=\count284
-)
+))
 Package: fontspec 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
  ("C:\Program Files\MiKTeX 2.9\tex/latex/fontspec\fontspec-xetex.sty"
 Package: fontspec-xetex 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
@@ -533,17 +534,17 @@ Package: fontspec-xetex 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
 Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/fontspec\fontspec.cfg")))
 Requested font "[LinLibertine_R.otf]/OT" at 8.99997pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_R.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_R.otf
 Requested font "[LinLibertine_R.otf]/OT" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_R.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_R.otf
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=dflt;" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_R.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_R.otf
 Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_RB.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_RB.otf
 Requested font "[LinLibertine_RI.otf]/OT:script=latn;language=dflt;" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_RI.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_RI.otf
 Requested font "[LinLibertine_RBI.otf]/OT:script=latn;language=dflt;" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_RBI.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_RBI.otf
 
 Package fontspec Info: Font family 'LinLibertine(0)' created for font
 (fontspec)             'LinLibertine' with options [Ligatures = TeX,Extension
@@ -576,19 +577,19 @@ Package fontspec Info: Font family 'LinLibertine(0)' created for font
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
 (Font)              scaled to size 9.0pt on input line 308.
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;" at 9.0pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_R.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_R.otf
 Requested font "[LinBiolinum_R.otf]/OT" at 8.99997pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinBiolinum_R.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinBiolinum_R.otf
 Requested font "[LinBiolinum_R.otf]/OT" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinBiolinum_R.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinBiolinum_R.otf
 Requested font "[LinBiolinum_R.otf]/OT:script=latn;language=dflt;" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinBiolinum_R.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinBiolinum_R.otf
 Requested font "[LinBiolinum_RB.otf]/OT:script=latn;language=dflt;" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinBiolinum_RB.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinBiolinum_RB.otf
 Requested font "[LinBiolinum_RI.otf]/OT:script=latn;language=dflt;" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinBiolinum_RI.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinBiolinum_RI.otf
 Requested font "[LinBiolinum_RBO.otf]/OT:script=latn;language=dflt;" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinBiolinum_RBO.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinBiolinum_RBO.otf
 
 Package fontspec Info: Font family 'LinBiolinum(0)' created for font
 (fontspec)             'LinBiolinum' with options [Ligatures = TeX,Extension =
@@ -646,13 +647,13 @@ Package fontspec Info: Font family 'LinLibertine(1)' created for font
 (fontspec)             <->s*[1]"[LinLibertine_RBI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;+smcp;mapping=tex-text;"
 
 Requested font "[LinLibertine_RZ.otf]/OT" at 8.99997pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_RZ.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_RZ.otf
 Requested font "[LinLibertine_RZ.otf]/OT" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_RZ.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_RZ.otf
 Requested font "[LinLibertine_RZ.otf]/OT:script=latn;language=dflt;" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_RZ.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_RZ.otf
 Requested font "[LinLibertine_RZI.otf]/OT:script=latn;language=dflt;" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_RZI.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_RZI.otf
 
 Package fontspec Info: Font family 'LinLibertine(2)' created for font
 (fontspec)             'LinLibertine' with options [Ligatures = TeX,Extension
@@ -710,11 +711,11 @@ Package fontspec Info: Font family 'LinLibertine(3)' created for font
 (fontspec)             <->s*[1]"[LinLibertine_RBI.otf]/OT:script=latn;language=dflt;+tnum;+onum;+smcp;mapping=tex-text;"
 
 Requested font "[LinLibertine_DR.otf]/OT" at 8.99997pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_DR.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_DR.otf
 Requested font "[LinLibertine_DR.otf]/OT" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_DR.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_DR.otf
 Requested font "[LinLibertine_DR.otf]/OT:script=latn;language=dflt;" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_DR.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_DR.otf
 
 Package fontspec Info: Font family 'LinLibertine(4)' created for font
 (fontspec)             'LinLibertine' with options [Ligatures = TeX,Extension
@@ -798,17 +799,17 @@ Package fontspec Info: Font family 'LinBiolinum(2)' created for font
 (fontspec)             <->s*[1]"[LinBiolinum_RBO.otf]/OT:script=latn;language=dflt;+tnum;+onum;+smcp;mapping=tex-text;"
 
 Requested font "[LinLibertine_M.otf]/OT" at 8.99997pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_M.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_M.otf
 Requested font "[LinLibertine_M.otf]/OT" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_M.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_M.otf
 Requested font "[LinLibertine_M.otf]/OT:script=latn;language=dflt;" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_M.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_M.otf
 Requested font "[LinLibertine_MB.otf]/OT:script=latn;language=dflt;" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_MB.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_MB.otf
 Requested font "[LinLibertine_MO.otf]/OT:script=latn;language=dflt;" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_MO.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_MO.otf
 Requested font "[LinLibertine_MBO.otf]/OT:script=latn;language=dflt;" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_MBO.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_MBO.otf
 
 Package fontspec Info: Font family 'LinLibertine(5)' created for font
 (fontspec)             'LinLibertine' with options [Extension =
@@ -841,11 +842,11 @@ Package fontspec Info: Font family 'LinLibertine(5)' created for font
 (fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
 
 Requested font "[LinBiolinum_K.otf]/OT" at 8.99997pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinBiolinum_K.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinBiolinum_K.otf
 Requested font "[LinBiolinum_K.otf]/OT" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinBiolinum_K.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinBiolinum_K.otf
 Requested font "[LinBiolinum_K.otf]/OT:script=latn;language=dflt;" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinBiolinum_K.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinBiolinum_K.otf
 
 Package fontspec Info: Font family 'LinBiolinum_K(0)' created for font
 (fontspec)             'LinBiolinum_K' with options [Extension =
@@ -861,11 +862,11 @@ Package fontspec Info: Font family 'LinBiolinum_K(0)' created for font
 (fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
 
 Requested font "[LinLibertine_I.otf]/OT" at 8.99997pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_I.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_I.otf
 Requested font "[LinLibertine_I.otf]/OT" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_I.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_I.otf
 Requested font "[LinLibertine_I.otf]/OT:script=latn;language=dflt;" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_I.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_I.otf
 
 Package fontspec Info: Font family 'LinLibertine_I(0)' created for font
 (fontspec)             'LinLibertine_I' with options [Extension =
@@ -882,15 +883,15 @@ Package fontspec Info: Font family 'LinLibertine_I(0)' created for font
 
 LaTeX Info: Redefining \oldstylenums on input line 474.
 LaTeX Info: Redefining \liningnums on input line 475.
- ("C:\Program Files\MiKTeX 2.9\tex/latex/libertine\LinLibertine_R.tex") ("C:\Program Files\MiKTeX 2.9\tex/latex/libertine\LinBiolinum_R.tex") ("C:\Program Files\MiKTeX 2.9\tex/latex/libertine\LinBiolinum_K.tex") ("C:\Program Files\MiKTeX 2.9\tex/latex/libertine\LinLibertine_I.tex") ("C:\Program Files\MiKTeX 2.9\tex/latex/libertine\LKey.tex")) ("C:\Program Files\MiKTeX 2.9\tex/latex/inconsolata\inconsolata.fontspec")
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/libertine\LinLibertine_R.tex) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/libertine\LinBiolinum_R.tex) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/libertine\LinBiolinum_K.tex) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/libertine\LinLibertine_I.tex) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/libertine\LKey.tex)) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/inconsolata\inconsolata.fontspec)
 Requested font "[Inconsolatazi4-Regular.otf]/OT" at 8.99997pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/inconsolata/Inconsolatazi4-Regular.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/inconsolata/Inconsolatazi4-Regular.otf
 Requested font "[Inconsolatazi4-Regular.otf]/OT" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/inconsolata/Inconsolatazi4-Regular.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/inconsolata/Inconsolatazi4-Regular.otf
 Requested font "[Inconsolatazi4-Regular.otf]/OT:script=latn;language=dflt;" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/inconsolata/Inconsolatazi4-Regular.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/inconsolata/Inconsolatazi4-Regular.otf
 Requested font "[Inconsolatazi4-Bold.otf]/OT:script=latn;language=dflt;" at 9.00003pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/inconsolata/Inconsolatazi4-Bold.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/inconsolata/Inconsolatazi4-Bold.otf
 
 Package fontspec Info: Font family 'inconsolata(0)' created for font
 (fontspec)             'inconsolata' with options
@@ -918,13 +919,13 @@ Package fontspec Info: Font family 'inconsolata(0)' created for font
 (fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
 (fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
 
- ("C:\Program Files\MiKTeX 2.9\tex/latex/newtx\newtxmath.sty"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/newtx\newtxmath.sty
 Package: newtxmath 2020/05/02 v1.626
  `newtxmath' v1.626, 2020/05/02 Math macros based originally on txfonts (msharpe) ("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\centernot.sty"
 Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
 )
 \tx@cntz=\count296
- ("C:\Program Files\MiKTeX 2.9\tex/generic/binhex\binhex.tex")
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/generic/binhex\binhex.tex)
 \tx@Isdigit=\count297
 \tx@IsAlNum=\count298
 \tx@tA=\toks30
@@ -1029,10 +1030,10 @@ LaTeX Info: Redefining \Bbbk on input line 2452.
 LaTeX Info: Redefining \not on input line 2601.
 LaTeX Info: Redefining \textsquare on input line 2631.
 LaTeX Info: Redefining \openbox on input line 2633.
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/caption\caption.sty"
-Package: caption 2020/01/03 v3.4h Customizing captions (AR)
- ("C:\Program Files\MiKTeX 2.9\tex/latex/caption\caption3.sty"
-Package: caption3 2020/01/03 v1.8h caption3 kernel (AR)
+) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/caption\caption.sty
+Package: caption 2020/05/10 v3.4j Customizing captions (AR)
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/caption\caption3.sty
+Package: caption3 2020/05/10 v1.11 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 61.
 \captionmargin=\dimen178
 \captionmargin@=\dimen179
@@ -1047,7 +1048,7 @@ Package caption Info: AMS or SMF document class.
 \c@caption@flags=\count305
 \c@continuedfloat=\count306
 Package caption Info: hyperref package is loaded.
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/float\float.sty"
+) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count307
 \float@exts=\toks33
@@ -1069,7 +1070,7 @@ Class acmart Info: Printing CCS on input line 1469.
 Class acmart Info: Printing bibformat on input line 1469.
 Class acmart Info: Suppressing folios on input line 1476.
 Class acmart Info: Setting authorsperrow to 0 on input line 1479.
- ("C:\Program Files\MiKTeX 2.9\tex/latex/comment\comment.sty"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/comment\comment.sty
 \CommentStream=\write3
  Excluding comment 'comment') Excluding comment 'CCSXML'
 \c@@concepts=\count311
@@ -1078,7 +1079,7 @@ Class acmart Info: Setting authorsperrow to 0 on input line 1479.
 \author@bx=\box54
 \author@bx@wd=\dimen187
 \author@bx@sep=\skip64
- ("C:\Program Files\MiKTeX 2.9\tex/latex/fancyhdr\fancyhdr.sty"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/fancyhdr\fancyhdr.sty
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footers
 \f@nch@headwidth=\skip65
 \f@nch@O@elh=\skip66
@@ -1097,32 +1098,31 @@ Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footers
 Class acmart Info: Suppressing bibformat on input line 38.
 Class acmart Info: Printing folios on input line 44.
 ) ("C:\Program Files\MiKTeX 2.9\tex/generic/babel\babel.sty"
-Package: babel 2020/03/22 3.42 The Babel package
- ("C:\Program Files\MiKTeX 2.9\tex/generic/babel\switch.def"
-File: switch.def 2020/03/22 3.42 Babel switching mechanism
+Package: babel 2020/05/13 3.44 The Babel package
+ ("C:\Program Files\MiKTeX 2.9\tex/generic/babel\babel.def"
+File: babel.def 2020/05/13 3.44 Babel common definitions
+\babel@savecnt=\count312
+\U@D=\dimen191
+\l@babelnohyphens=\language79
+ ("C:\Program Files\MiKTeX 2.9\tex/generic/babel\xebabel.def" ("C:\Program Files\MiKTeX 2.9\tex/generic/babel\txtbabel.def"))
+\bbl@readstream=\read3
 )
+\bbl@dirlevel=\count313
+
 *************************************
 * Local config file bblopts.cfg used
 *
 ("C:\Program Files\MiKTeX 2.9\tex/latex/arabi\bblopts.cfg"
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
-) ("C:\Program Files\MiKTeX 2.9\tex/latex/babel-german\ngerman.ldf"
+) (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/babel-german\ngerman.ldf
 Language: ngerman 2018/12/08 v2.11 German support for babel (post-1996 orthography)
- ("C:\Program Files\MiKTeX 2.9\tex/latex/babel-german\ngermanb.ldf"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/babel-german\ngermanb.ldf
 Language: ngermanb 2018/12/08 v2.11 German support for babel (post-1996 orthography)
- ("C:\Program Files\MiKTeX 2.9\tex/generic/babel\babel.def"
-File: babel.def 2020/03/22 3.42 Babel common definitions
-\babel@savecnt=\count312
-\U@D=\dimen191
- ("C:\Program Files\MiKTeX 2.9\tex/generic/babel\xebabel.def" ("C:\Program Files\MiKTeX 2.9\tex/generic/babel\txtbabel.def"))
-\bbl@readstream=\read3
-\bbl@dirlevel=\count313
-)
 Package babel Info: Making " an active character on input line 121.
 )))
 Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 10.
 \c@theorem=\count314
- ("C:\Program Files\MiKTeX 2.9\tex/latex/preprint\balance.sty"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/preprint\balance.sty
 Package: balance 1999/02/23 4.3 (PWD)
 \oldvsize=\dimen192
 ) Excluding comment 'screenonly' Include comment 'printonly' Include comment 'anonsuppress' (XCS_mixing_models.aux)
@@ -1130,7 +1130,7 @@ Package: balance 1999/02/23 4.3 (PWD)
 
 LaTeX Font Info:    Checking defaults for OML/nxlmi/m/it on input line 10.
 LaTeX Font Info:    Trying to load font information for OML+nxlmi on input line 10.
- ("C:\Program Files\MiKTeX 2.9\tex/latex/newtx\omlnxlmi.fd"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/newtx\omlnxlmi.fd
 File: omlnxlmi.fd 2013/11/19 Fontinst v1.933 font definitions for OML/nxlmi.
 )
 LaTeX Font Info:    ... okay on input line 10.
@@ -1152,7 +1152,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 10.
 LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 10.
- ("C:\Program Files\MiKTeX 2.9\tex/latex/newtx\untxexa.fd"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/newtx\untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
 LaTeX Font Info:    ... okay on input line 10.
@@ -1162,20 +1162,20 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 10.
 LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 10.
- ("C:\Program Files\MiKTeX 2.9\tex/latex/newtx\lmsntxsy.fd"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/newtx\lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
 LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 10.
 LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 10.
- ("C:\Program Files\MiKTeX 2.9\tex/latex/newtx\lmxntxexx.fd"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/newtx\lmxntxexx.fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
 LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
 (Font)              scaled to size 7.0pt on input line 10.
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;" at 7.0pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_R.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_R.otf
 LaTeX Font Info:    Trying to load font information for OT1+LinLibertine(0) on input line 10.
 LaTeX Font Info:    No file OT1LinLibertine(0).fd. on input line 10.
 
@@ -1206,19 +1206,19 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 Requested font "msbm7" at 7.3pt
 Requested font "msbm5" at 5.5pt
 LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 10.
- ("C:\Program Files\MiKTeX 2.9\tex/latex/newtx\untxmia.fd"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/newtx\untxmia.fd
 File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
 )
 Requested font "nxlmia" at 7.3pt
 Requested font "nxlmia" at 5.5pt
 LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 10.
- ("C:\Program Files\MiKTeX 2.9\tex/latex/newtx\untxsym.fd"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/newtx\untxsym.fd
 File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
 )
 Requested font "ntxsym" at 7.3pt
 Requested font "ntxsym" at 5.5pt
 LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 10.
- ("C:\Program Files\MiKTeX 2.9\tex/latex/newtx\untxsyc.fd"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/newtx\untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
 Requested font "ntxsyc" at 7.3pt
@@ -1240,7 +1240,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 Package hyperref Info: Link coloring OFF on input line 10.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
- ("C:\Program Files\MiKTeX 2.9\tex/generic/gettitlestring\gettitlestring.sty"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/generic/gettitlestring\gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count315
@@ -1292,11 +1292,11 @@ Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
 (Font)              scaled to size 17.28pt on input line 18.
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;" at 17.28pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_R.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_R.otf
 LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/n' will be
 (Font)              scaled to size 17.28pt on input line 18.
 Requested font "[LinBiolinum_R.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;" at 17.28pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinBiolinum_R.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinBiolinum_R.otf
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinBiolinum' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
@@ -1304,23 +1304,23 @@ Package microtype Info: Loading generic protrusion settings for font family
 LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
 (Font)              scaled to size 17.28pt on input line 18.
 Requested font "[LinBiolinum_RB.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;" at 17.28pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinBiolinum_RB.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinBiolinum_RB.otf
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
 (Font)              scaled to size 12.0pt on input line 18.
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;" at 12.0pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_R.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_R.otf
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
 (Font)              scaled to size 10.0pt on input line 18.
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;" at 10.0pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_R.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_R.otf
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
 (Font)              scaled to size 9.0pt on input line 23.
 Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;" at 9.0pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_RB.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_RB.otf
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
 (Font)              scaled to size 10.95pt on input line 23.
 Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;" at 10.95pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_RB.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_RB.otf
 
 Overfull \hbox (3.52802pt too wide) in paragraph at lines 24--27
 \TU/LinLibertine(0)/m/n/9 Fitness gewichtete Summe der einzelnen Predictions berechnet. Die-
@@ -1335,11 +1335,11 @@ Requested font "nxlmi" at 9.0pt
 Requested font "ntxsy" at 9.0pt
 Requested font "ntxexx" at 9.0pt
 Requested font "msam10" at 9.0pt
-("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\mt-msa.cfg"
+(C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 Requested font "msbm10" at 9.0pt
- ("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\mt-msb.cfg"
+ (C:\Users\Markus\AppData\Roaming\MiKTeX\2.9\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 Requested font "nxlmia" at 9.0pt
@@ -1350,20 +1350,22 @@ Requested font "ntxexa" at 9.0pt
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/it' will be
 (Font)              scaled to size 7.0pt on input line 45.
 Requested font "[LinLibertine_RI.otf]/OT:script=latn;language=dflt;+tnum;+lnum;mapping=tex-text;" at 7.0pt
- -> C:/Program Files/MiKTeX 2.9/fonts/opentype/public/libertine/LinLibertine_RI.otf
+ -> C:/Users/Markus/AppData/Roaming/MiKTeX/2.9/fonts/opentype/public/libertine/LinLibertine_RI.otf
 LaTeX Info: Redefining \tempurl on input line 60.
 LaTeX Info: Redefining \tempurl on input line 76.
 )
-Overfull \vbox (2.02692pt too high) has occurred while \output is active []
 
- [1.1
+Package balance Warning: You have called \balance in second column
+(balance)                Columns might not be balanced.
+
+[1.1
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 64.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 64.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 65.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 65.
  (XCS_mixing_models.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 64.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 64.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 65.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 65.
 Package rerunfilecheck Info: File `XCS_mixing_models.out' has not changed.
 (rerunfilecheck)             Checksum: E901270644A54F84516200A60FA941EA;655.
 
@@ -1376,12 +1378,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 29340 strings out of 414218
- 545683 string characters out of 2902544
- 837239 words of memory out of 3000000
- 46331 multiletter control sequences out of 15000+200000
+ 29469 strings out of 414076
+ 549252 string characters out of 2898240
+ 837828 words of memory out of 3000000
+ 46597 multiletter control sequences out of 15000+200000
  547243 words of font info for 102 fonts, out of 3000000 for 9000
  1509 hyphenation exceptions out of 8191
- 76i,11n,115p,840b,389s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 76i,11n,115p,1142b,381s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on XCS_mixing_models.xdv (1 page, 26940 bytes).
+Output written on XCS_mixing_models.xdv (1 page, 36064 bytes).

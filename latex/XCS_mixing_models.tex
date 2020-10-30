@@ -32,7 +32,8 @@ $$ \tau_{k}^{-1} = (c_{k} - D^{X}) \sum_{n}^{N} m(x_{n}) (\hat{w}_{k}^T x_{n} - 
 
 
 \section{Probleme}
-Klassifikation statt Regression 
+Wie bereits beschrieben handelt es sich bei der eigentlichen Definition um Regression. Bei Regression ist es unwahrscheinlich bzw. unmöglich, je nach Modell, auf einen perfekten Classifier zu treffen. Das Problem bei einem perfekten Classifier ist, dass der hintere Teil der Formel 0 ergibt. Das wird zum Problem, wenn man zur Berechnung der Inversen Varianz den Umkehrbruch bildet. Im Buch ist das nicht weiter definiert. In dieser Implementation habe ich in diesem Fall Unendlich (numpy.inf) eingesetzt. Dadurch bekommt man schließlich im Mixing Probleme. Zwar bekommt man bei einem Unendlich beim Mixing-Parameter $g_{k}$ bei allen anderen Classifiern, die nicht Unendlich sind 0 raus, allerdings ist $f\frac{numpy.inf}{numpy.inf}$ nicht definiert. Stattdessen wird $g_{k}$ im Falle eines Classifiers k im Matchset mit $\gamma_{k} = \infty$ wie folgt berechnet: $g_{k} = \frac{1}{c_{inf}} $ für alle Classifier k mit $\gamma_{k} = \infty$ und $g_{k} = 0$ für alle anderen Classifier. $c_{inf}$ ist die Anzahl der Classifier mit $\gamma_{k} = \infty$.
+
 Unendlich 
 Minus 
 Batch Ansatz statt Iterativer Ansatz -> Laufzeit
