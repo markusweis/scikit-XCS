@@ -55,11 +55,11 @@ Dadurch wird sichergestellt, dass die Summe aller Gating Parameter für jeden In
 
 
 \section{Probleme}
-Im Buch wurde Inverse Variance Mixing nie im XCS-Context benutzt. Stattdessen wurde sie im allgemeineren Context von LCS definiert. Ein bedeutendes Problem was sich daraus ergab, was, dass LCS Classifier im Buch durch Batch Learning trainiert werden und nicht iterativ, wie es bei XCS der Fall ist. 
-Ein erster Ansatz der Implementierung war einfach die Fitness der einzelnen Classifier durch die inverse Variance zu ersetzten. 
+Im Buch wurde Inverse Variance Mixing nie im XCS-Context benutzt. Stattdessen wurde sie im allgemeineren Context von LCS definiert. LCS Classifier im Buch wurden durch Batch Learning trainiert werden und nicht iterativ, wie es bei XCS der Fall ist. 
+Ein erster Ansatz der Implementierung hier war einfach die Fitness der einzelnen Classifier durch die inverse Variance zu ersetzten. 
 Daraus ergaben sich aber 2 Probleme: 
 
-1. Da man für alle Classifier, die für die aktuelle Prediction verantwortlich sind, die Fitness updatet, müsste man für alle diese die inverse variance neu berechnen. Dazu wird aber für jeden Classifier das komplette Trainingsset durchlaufen. Dies führt zu einer nicht akzeptablen Laufzeit. Hier müsste wie im restlichen XCS ein iterativer Ansatz verfolgt werden. Dies wurde hier nicht gemacht, da man sich dadurch noch weiter von der ursprünglichen Idee entfernt und weiter Hyperparamter eingefügt werden müssten. 
+1. Da man für alle Classifier, die für die aktuelle Prediction verantwortlich sind, die Fitness updatet, müsste man für alle diese die inverse variance neu berechnen. Dazu wird aber für jeden Classifier das komplette Trainingsset durchlaufen. Dies führt zu einer nicht akzeptablen Laufzeit. Hier müsste wie im restlichen XCS ein iterativer Ansatz verfolgt werden. Dies wurde hier nicht gemacht, da man sich dadurch noch weiter von der ursprünglichen Idee entfernt und weiter Hyperparameter eingefügt werden müssten. 
 Stattdessen wurde hier die Laufzeit erstmal in Kauf genommen und geschaut, ob so gute Ergebnisse auftreten.  
 
 2. Das Erzeugen neuer Classifier benutzt die Fitness als Auswahlkriterium. Allerdings ist die Inverse Variance zu Beginn des Training Vorgangs noch nicht als sinnvoll zu betrachten. Beispielsweise wird ein Classifier, der auf einen Input perfekt passt stets bevorzugt, egal ob es allgemeinere gibt, die ähnlich gut sind. 
@@ -77,16 +77,31 @@ Ein weiteres Problem ergab sich im Fall, dass der Matchcount $c_k$ für einige C
 
 
 
-Minus 
 
 
 
-Batch Ansatz statt Iterativer Ansatz -> Laufzeit
-Nicht für XCS gedacht sondern für allgemeinere LCS Systeme 
-scikit trainiert die Modelle immer im ganzen. Ich konnte die Accuracy nicht Ploten lassen
-Perfekte Ergebnisse nach genug training 
 
 \section{Ergebnisse}
+Die Implementierung wurde auf Multiplexern verschiedener Größe evaluiert: 6 Bit, 11 Bit und 20 Bit. Die Trainingsdauer und die Hyperparameter orientieren sich an \cite{iqbal13}. Dort ist zu entnehmen, wie viele Iterationen XCS braucht, um die verschieden großen Multiplexer perfekt zu lernen. Letztendlich wäre jedes der hier zu evaluierenden Implementierungen bei den Problemen zu einer perfekte Accuracy gekommen, wenn man nur lange genug trainiert. Es wäre wohl sinnvoll die Implementierungen auch auf Problemen zu testen, bei denen XCS keine perfekte Lösung finden kann. Dies wird hier allerdings nicht gemacht. 
+Es wird für 4000, 10000, 40000 Iterationen für den 6-Bit, 11-Bit und 20-Bit Multiplexer trainiert. 
+Die durchschnittliche Accuracy der Cross-Validation ist der Tabelle %TODO:
+ zu entnehmen. Dabei wurde beim 6-Bit Multiplexer eine 10x5, beim 11-Bit Multiplexer eine 5x5 und beim 20-Bit Multiplexer eine 2x5 Cross-Validation durchgeführt. Dies liegt an der langen Laufzeit der Implementierung mit dem kontinuierlichen Update der inversen Variance. 
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+    \hline
+    & 6 Bit & 11 Bit & 20 Bit \\
+    \hline
+    normal & & & \\
+    \hline
+    evenly-distributed & & &\\
+    \hline
+    only-mixing & & & \\
+    \hline
+    continuous-update & & & \\
+    \hline
+\end{tabular}
+\end{center}
 
 \section{Fazit}
 Die hier beschrieben Ergebnisse zeigen, dass das Inverse Variance Mixing, wie es hier implementiert ist, sicher nicht als sinnvolle Alternative zum gewöhnlichen XCS-Mixing benutzt werden kann. In dieser Implementierung wurde allerdings notwendigerweise stark von der eigentlichen vorgeschlagenen Heuristik abgewichen. Welche der Abweichungen zu den schlechten Resultaten führt ist schwer zu sagen. 

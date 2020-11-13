@@ -354,7 +354,6 @@ class ClassifierSet:
                 self.matchSet.append(i)
 
         if xcs.mixing_method == "inv-var-only-mixing":
-            print("Updating g_k")
             # Update g_k
             sumInverseVariance = 0
             countInf = 0

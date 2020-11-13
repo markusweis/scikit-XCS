@@ -383,6 +383,8 @@ class Classifier:
             self.inverseVariance =  (self.matchCountMixing - xcs.env.formatData.numAttributes) / (self.lossSum)
         else: 
             self.inverseVariance = np.inf
+        if self.inverseVariance < 0:
+            self.inverseVariance = 0
         xcs.env.setDataRef(dataRef)
         
 
