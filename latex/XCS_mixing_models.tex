@@ -60,7 +60,7 @@ Ein erster Ansatz der Implementierung hier war einfach die Fitness der einzelnen
 Daraus ergaben sich aber 2 Probleme: 
 
 1. Da man für alle Classifier, die für die aktuelle Prediction verantwortlich sind, die Fitness updatet, müsste man für alle diese die inverse variance neu berechnen. Dazu wird aber für jeden Classifier das komplette Trainingsset durchlaufen. Dies führt zu einer nicht akzeptablen Laufzeit. Hier müsste wie im restlichen XCS ein iterativer Ansatz verfolgt werden. Dies wurde hier nicht gemacht, da man sich dadurch noch weiter von der ursprünglichen Idee entfernt und weiter Hyperparameter eingefügt werden müssten. 
-Stattdessen wurde hier die Laufzeit erstmal in Kauf genommen und geschaut, ob so gute Ergebnisse auftreten.  
+Stattdessen wurde hier die Laufzeit erstmal in Kauf genommen und geschaut, ob auf diese Weise gute Ergebnisse auftreten.  
 
 2. Das Erzeugen neuer Classifier benutzt die Fitness als Auswahlkriterium. Allerdings ist die Inverse Variance zu Beginn des Training Vorgangs noch nicht als sinnvoll zu betrachten. Beispielsweise wird ein Classifier, der auf einen Input perfekt passt stets bevorzugt, egal ob es allgemeinere gibt, die ähnlich gut sind. 
 
@@ -68,9 +68,9 @@ Wir sind schließlich zu dem Schluss gekommen, die Fitness des ursprünglichen X
  
 
 
-Wie bereits beschrieben handelt es sich bei der eigentlichen Definition um Regression. Bei Regression ist es unwahrscheinlich bzw. unmöglich, je nach Modell, auf einen perfekten Classifier zu treffen. Das Problem bei einem perfekten Classifier ist, dass der hintere Teil der Formel 0 ergibt. Das wird zum Problem, wenn man zur Berechnung der Inversen Varianz den Umkehrbruch bildet. Im Buch ist das nicht weiter definiert. In dieser Implementation habe ich in diesem Fall Unendlich (numpy.inf) eingesetzt. Dadurch bekommt man schließlich im Mixing Probleme. Zwar bekommt man bei einem Unendlich beim Mixing-Parameter $g_{k}$ bei allen anderen Classifiern, die nicht Unendlich sind 0 raus, allerdings ist $f\frac{numpy.inf}{numpy.inf}$ nicht definiert. Stattdessen wird $g_{k}$ im Falle eines Classifiers k im Matchset mit $\gamma_{k} = \infty$ wie folgt berechnet: $g_{k} = \frac{1}{c_{inf}} $ für alle Classifier k mit $\gamma_{k} = \infty$ und $g_{k} = 0$ für alle anderen Classifier. $c_{inf}$ ist die Anzahl der Classifier mit $\gamma_{k} = \infty$.
+Wie bereits beschrieben handelt es sich bei der eigentlichen Definition um Regression. Bei Regression ist es unwahrscheinlich bzw. unmöglich, je nach Modell, auf einen perfekten Classifier zu treffen. Das Problem bei einem perfekten Classifier ist, dass der hintere Teil der Formel, also das Fehlermaß, Null ergibt. Das wird zum Problem, wenn man zur Berechnung der Inversen Varianz den Umkehrbruch bildet. Im Buch ist das nicht weiter definiert. In dieser Implementation habe ich in diesem Fall Unendlich (numpy.inf) eingesetzt. Dadurch bekommt man schließlich im Mixing Probleme. Zwar bekommt man bei einem Unendlich beim Mixing-Parameter $g_{k}$ bei allen anderen Classifiern, die nicht Unendlich sind 0 raus, allerdings ist $\frac{numpy.inf}{numpy.inf}$ nicht definiert. Stattdessen wird $g_{k}$ im Falle eines Classifiers k im Matchset mit $\gamma_{k} = \infty$ wie folgt berechnet: $g_{k} = \frac{1}{c_{inf}} $ für alle Classifier k mit $\gamma_{k} = \infty$ und $g_{k} = 0$ für alle anderen Classifier. $c_{inf}$ ist die Anzahl der Classifier mit $\gamma_{k} = \infty$.
 
-Ein weiteres Problem ergab sich im Fall, dass der Matchcount $c_k$ für einige Classifier geringer als die Dimension des Inputs war, sodass sich für die Varianz und die negative Varianz ein negativer Wert ergibt. Im Buch ist nicht beschrieben, wie in diesem Fall mit den Classifiern umgegangen werden soll. %TODO: Was mach ich denn damit?
+Ein weiteres Problem ergab sich im Fall, dass der Matchcount $c_k$ für einige Classifier geringer als die Dimension des Inputs war, sodass sich für die Varianz und die negative Varianz ein negativer Wert ergibt. Im Buch ist nicht beschrieben, wie in diesem Fall mit den Classifiern umgegangen werden soll. Im meiner Implementation werden diese Classifier einfach ignoriert. 
 
 
 
@@ -84,24 +84,82 @@ Ein weiteres Problem ergab sich im Fall, dass der Matchcount $c_k$ für einige C
 \section{Ergebnisse}
 Die Implementierung wurde auf Multiplexern verschiedener Größe evaluiert: 6 Bit, 11 Bit und 20 Bit. Die Trainingsdauer und die Hyperparameter orientieren sich an \cite{iqbal13}. Dort ist zu entnehmen, wie viele Iterationen XCS braucht, um die verschieden großen Multiplexer perfekt zu lernen. Letztendlich wäre jedes der hier zu evaluierenden Implementierungen bei den Problemen zu einer perfekte Accuracy gekommen, wenn man nur lange genug trainiert. Es wäre wohl sinnvoll die Implementierungen auch auf Problemen zu testen, bei denen XCS keine perfekte Lösung finden kann. Dies wird hier allerdings nicht gemacht. 
 Es wird für 4000, 10000, 40000 Iterationen für den 6-Bit, 11-Bit und 20-Bit Multiplexer trainiert. 
-Die durchschnittliche Accuracy der Cross-Validation ist der Tabelle %TODO:
- zu entnehmen. Dabei wurde beim 6-Bit Multiplexer eine 10x5, beim 11-Bit Multiplexer eine 5x5 und beim 20-Bit Multiplexer eine 2x5 Cross-Validation durchgeführt. Dies liegt an der langen Laufzeit der Implementierung mit dem kontinuierlichen Update der inversen Variance. 
+Die durchschnittliche Accuracy der Cross-Validation der verschiedenen Implementierungen ist der Tabelle \ref{accuracy-tabelle}
+ zu entnehmen. Dabei wurde beim 6-Bit Multiplexer eine 10x5, beim 11-Bit Multiplexer eine 5x5 und beim 20-Bit Multiplexer eine 2x5 Cross-Validation durchgeführt. Dies liegt an der langen Laufzeit der Implementierung mit dem kontinuierlichen Update der inversen Variance.
+Es wird neben den beiden bereits erwähnten Implementierungen der inversen Varianz noch eine Gleichgewichtung der Klassifier vorgenommen, um den Effekt des Mixings vergleichen zu können (evenly-distributed).  
 
-\begin{center}
+\begin{table}
+    
+\begin{center}\label{accuracy-tabelle}
 \begin{tabular}{|c|c|c|c|}
     \hline
     & 6 Bit & 11 Bit & 20 Bit \\
     \hline
-    normal & & & \\
+    normal & 0,98 (+/- 0,03) & 0,98 (+/- 0,02) & 0,89 (+/- 0,05) \\
     \hline
-    evenly-distributed & & &\\
+    evenly-distributed & 0,88 (+/- 0,06) & 0,92 (+/- 0,04) & 0,84 (+/- 0,05) \\
     \hline
-    only-mixing & & & \\
+    only-mixing & 0,87 (+/- 0,06) & 0,90 (+/- 0,04) & 0,84 (+/- 0,05) \\
     \hline
-    continuous-update & & & \\
+    continuous-update & 0,93 (+/- 0,04) & 0,93 (+/- 0,03) & 0,85 (+/- 0,05) \\
     \hline
 \end{tabular}
 \end{center}
+\caption{Durchschnittliche Accuracy der verschiedenen Implementierung mit Standartabweichung in Klammern. }
+\end{table}
+
+Es ist hier bereits zu erkennen, dass die Ergebnisse des inverse Variance Mixing schlechter sind als die des normalen XCS-Mixing. 
+Genauere Auswertungen der verschiedenen Problem-Größen sind hier aufgeführt. 
+
+\subsection{6 Bit Multiplexer}
+Die Boxplots zu den Accuracy Werten aus Tabelle \ref{accuracy-tabelle} sind in Abbildung \ref{boxplot-6-bit} zu sehen. Es ist deutlich, dass das normale XCS am Besten abschneidet. Evenly-distributed ist zwar auf ähnlichem Niveau, wie die beiden Inverse Variance Arten, allerdings hat es einige negative Ausreißer. 
+
+
+\begin{figure}
+    \includegraphics[width=\linewidth]{img/boxplot_6Bitpng.png}
+    \caption{Accuracy Werte des 6 Bit Multiplexers}
+    \Description[short]{long}\label{boxplot-6-bit}
+\end{figure}
+
+Schließlich wurde noch ein TTest durchgeführt, um zu überprüfen, ob die Unterschiede der Algorithmen statische Signifikanz aufweisen. Hierfür wurde die Funktion $paired\_ttest\_5x2cv()$ der MLxtend Library von Sebastian Raschka verwendet. Es wurde ein Signifikanzwert von $\alpha = 0,05$ verwendet. Dass heißt die Unterschiede zwischen den Implementierungen sind signifikant, fass das Ergebnis der des $paired\_ttest\_5x2cv()$ einen Wert unter 0,05 liefert. Diese Einträge sind gelb hinterlegt. Die Ergebnisse sind Abbildung \ref{ttest-6-bit} zu entnehmen. 
+
+\begin{figure}
+    \includegraphics[width=\linewidth]{img/ttest_6_bit.png}
+    \caption{5x2 Cross-validation paired ttest auf dem 6 Bit Multiplexer}\label{ttest-6-bit}
+    \Description[short]{long}
+\end{figure}
+
+Der TTest erkennt unterschiede zwischen allen Verteilungen, außer zwischen evenly-distributed und inv-var-only-mixing. Ein Ergebnis, das wieder gegen die Verwendung dieser Implementierung spricht. 
+
+\subsection{11 Bit Multiplexer}
+
+\begin{figure}[h]
+    \includegraphics[width=\linewidth]{img/boxplot_11_bit.png}
+    \caption{Accuracy Werte des 6 Bit Multiplexers}
+    \Description[short]{long}\label{boxplot-6-bit}
+\end{figure}
+
+\begin{figure}[h]
+    \includegraphics[width=\linewidth]{img/ttest_11_bit.png}
+    \caption{5x2 Cross-validation paired ttest auf dem 6 Bit Multiplexer}\label{ttest-6-bit}
+    \Description[short]{long}
+\end{figure}
+
+\subsection{20 Bit Multiplexer}
+
+\begin{figure}[h]
+    \includegraphics[width=\linewidth]{img/boxplot_20_bit.png}
+    \caption{Accuracy Werte des 6 Bit Multiplexers}
+    \Description[short]{long}\label{boxplot-6-bit}
+\end{figure}
+
+
+%\begin{figure}[h]
+%    \includegraphics[width=\linewidth]{img/ttest_11_bit.png}
+%    \caption{5x2 Cross-validation paired ttest auf dem 6 Bit %Multiplexer}\label{ttest-6-bit}
+%    \Description[short]{long}
+%\end{figure}
+
 
 \section{Fazit}
 Die hier beschrieben Ergebnisse zeigen, dass das Inverse Variance Mixing, wie es hier implementiert ist, sicher nicht als sinnvolle Alternative zum gewöhnlichen XCS-Mixing benutzt werden kann. In dieser Implementierung wurde allerdings notwendigerweise stark von der eigentlichen vorgeschlagenen Heuristik abgewichen. Welche der Abweichungen zu den schlechten Resultaten führt ist schwer zu sagen. 
