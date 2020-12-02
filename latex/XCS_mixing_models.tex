@@ -1,4 +1,4 @@
-\documentclass{ocsmnar}
+\documentclass[10pt]{ocsmnar}
 
 
 
@@ -6,6 +6,8 @@
 \usepackage[ngerman]{babel}
 \usepackage{hyperref}
 \usepackage{amsmath}
+\seminar{Praxismodul}
+\semester{Sommersemester 2020}
 
 \begin{document}
 
@@ -81,8 +83,8 @@ Ein weiteres Problem ergab sich im Fall, dass der Matchcount $c_k$ für einige C
 \section{Ergebnisse}
 Die Implementierung wurde auf Multiplexern verschiedener Größe evaluiert: 6 Bit, 11 Bit und 20 Bit. Die Trainingsdauer und die Hyperparameter orientieren sich an \cite{iqbal13}. Dort ist zu entnehmen, wie viele Iterationen XCS braucht, um die verschieden großen Multiplexer perfekt zu lernen. Letztendlich wäre jedes der hier zu evaluierenden Implementierungen bei den Problemen zu einer perfekte Accuracy gekommen, wenn man nur lange genug trainiert. Es wäre wohl sinnvoll die Implementierungen auch auf Problemen zu testen, bei denen XCS keine perfekte Lösung finden kann. Dies wird hier allerdings nicht gemacht. 
 Es wird für 4000, 10000, 40000 Iterationen für den 6-Bit, 11-Bit und 20-Bit Multiplexer trainiert. 
-Die durchschnittliche Accuracy der Cross-Validation der verschiedenen Implementierungen ist der Tabelle \ref{accuracy-tabelle}
- zu entnehmen. Dabei wird jeweils eine 10x5 Cross-Validation durchgeführt. Es sei hier nochmal erwähnt, dass das kontinuierliche Update der inversen Varianz zu sehr langsamer Laufzeit führt und deshalb die Ergebnisse nicht auf größeren Datensätzen ausgewertet werden können. 
+Die durchschnittliche Accuracy der Cross\--Vali\-dation der verschiedenen Implementierungen ist der Tabelle \ref{accuracy-tabelle}
+ zu entnehmen. Dabei wird jeweils eine 10x5 Cross-Va\-li\-da\-tion durchgeführt. Es sei hier nochmal erwähnt, dass das kontinuierliche Update der inversen Varianz zu sehr langsamer Laufzeit führt und deshalb die Ergebnisse nicht auf größeren Datensätzen ausgewertet werden können. 
 Es wird neben den beiden bereits erwähnten Implementierungen der inversen Varianz noch eine Gleichgewichtung der Classifier vorgenommen, um den Effekt des Mixings vergleichen zu können (evenly-distributed).  
 
 \begin{table}
@@ -102,7 +104,7 @@ Es wird neben den beiden bereits erwähnten Implementierungen der inversen Varia
     \hline
 \end{tabular}
 \end{center}
-\caption{Durchschnittliche Accuracy der verschiedenen Implementierung mit Standartabweichung in Klammern. }
+\caption{Durchschnittliche Accuracy der verschiedenen Implementierung mit Standartabweichung in Klammern. }\label{accuracy-tabelle}
 \end{table}
 
 Es ist hier bereits zu erkennen, dass die Ergebnisse des inverse Variance Mixing schlechter sind als die des normalen XCS-Mixing. 
@@ -118,7 +120,7 @@ Die Boxplots zu den Accuracy Werten aus Tabelle \ref{accuracy-tabelle} sind in A
     \Description[short]{long}\label{boxplot-6-bit}
 \end{figure}
 
-Schließlich wurde noch ein TTest durchgeführt, um zu überprüfen, ob die Unterschiede der Algorithmen statische Signifikanz aufweisen. Hierfür wurde die Funktion $paired\_ttest\_5x2cv()$ der MLxtend Library von Sebastian Raschka verwendet. Es wurde ein Signifikanzwert von $\alpha = 0,05$ verwendet. Das bedeutet die Unterschiede zwischen den Implementierungen sind signifikant, falls das Ergebnis der des $paired\_ttest\_5x2cv()$ einen Wert unter 0,05 liefert. Diese Einträge sind gelb hinterlegt. Die Ergebnisse sind Abbildung \ref{ttest-6-bit} zu entnehmen. 
+Schließlich wurde noch ein TTest durchgeführt, um zu überprüfen, ob die Unterschiede der Algorithmen statische Signifikanz aufweisen. Hierfür wurde die Funktion $paired\_\-ttest\-\_5x2cv()$ der MLxtend Library von Sebastian Raschka verwendet. Es wurde ein Signifikanzwert von $\alpha = 0,05$ verwendet. Das bedeutet die Unterschiede zwischen den Implementierungen sind signifikant, falls das Ergebnis der des $paired\_\-ttest\-\_5x2cv()$ einen Wert unter 0,05 liefert. Diese Einträge sind gelb hinterlegt. Die Ergebnisse sind Abbildung \ref{ttest-6-bit} zu entnehmen. 
 
 \begin{figure}
     \includegraphics[width=\linewidth]{img/ttest_6_bit.png}

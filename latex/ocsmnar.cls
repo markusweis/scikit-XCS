@@ -42,3 +42,10 @@
 
 % Enable page numbers.
 \settopmatter{printfolios=true}
+
+
+% Set the correct running header.
+\newcommand{\seminar}[1]{\def\theseminar{#1}}
+\newcommand{\semester}[1]{\def\thesemester{#1}}
+\acmConference{Seminar \theseminar}{\thesemester}{Lehrstuhl für Organic Computing}
+% \acmConference{Seminar NAMAS}{Sommersemester 2020}{Lehrstuhl für Organic Computing}
